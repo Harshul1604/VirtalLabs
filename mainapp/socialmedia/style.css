@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
+@import url("https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css");
+*, *:before, *:after {
+ 
+
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font: 14px/1 'Open Sans', sans-serif;
+  color: #555;
+ margin-left: -20%;
+  z-index: -10;
+  height:300px;
+  border: black;
+}
+
+h1 {
+  padding: 20px 0;
+  font-weight: 400;
+  text-align: center;
+}
+
+p {
+  margin: 0 0 10px;
+  line-height: 1.5;
+}
+
+main {
+  min-width: 250px;
+  max-width:250px;
+  height:450px;
+margin:auto;
+  background: #fff;
+  border: 1px solid black;
+}
+
+section {
+  display: none;
+  padding: 10px 0 0;
+  border-top: 1px solid #ddd;
+}
+
+input {
+  display: none;
+}
+
+label {
+  display: inline-block;
+  margin: 0 0 -1px;
+  padding: 15px 20px;
+  font-weight: 600;
+  text-align: center;
+
+  border: 1px solid transparent;
+  width:100px;
+height:0px;
+}
+
+label:before {
+  font-family: fontawesome;
+  font-weight: normal;
+  margin-right: 10px;
+}
+
+label[for*='1']:before {
+  width:50px;
+}
+
+label[for*='2']:before {
+   width:50px;
+}
+
+
+label:hover {
+ 
+  cursor: pointer;
+}
+
+input:checked + label {
+  color: #555;
+  border: 1px solid #ddd;
+  border-top: 2px solid orange;
+  border-bottom: 1px solid #fff;
+height:70px;
+}
+
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2,
+#tab3:checked ~ #content3,
+#tab4:checked ~ #content4 {
+  display: block;
+}
+
+@media screen and (max-width: 650px) {
+  label {
+    font-size: 0;
+  }
+
+  label:before {
+    margin: 0;
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 400px) {
+  label {
+    padding: 10px;
+  }
+}

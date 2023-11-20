@@ -1,0 +1,1051 @@
+{% load static %}
+<!DOCTYPE html>
+
+<!-- 
+  Theme Name: Enlight
+  Theme URL: https://probootstrap.com/enlight-free-education-responsive-bootstrap-website-template
+  Author: ProBootstrap.com
+  Author URL: https://probootstrap.com
+  License: Released for free under the Creative Commons Attribution 3.0 license (probootstrap.com/license)
+-->
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% block title %}
+  <title>Virtual Labs | Home</title>
+  {% endblock %}
+  <meta name="description" content="Free Bootstrap Theme by ProBootstrap.com">
+  <meta name="keywords"
+    content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
+
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700|Open+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/styles-merged.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+
+
+  <!--[if lt IE 9]>
+      <script src="js/vendor/html5shiv.min.js"></script>
+      <script src="js/vendor/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+  <div class="probootstrap-search" id="probootstrap-search">
+    <a href="#" class="probootstrap-close js-probootstrap-close"><i class="icon-cross"></i></a>
+    <form action="#">
+      <input type="search" name="s" id="search" placeholder="Search a keyword and hit enter...">
+    </form>
+  </div>
+
+  <div class="probootstrap-page-wrapper">
+
+    <nav class="navbar navbar-default probootstrap-navbar">
+      <div class="container">
+        <div class="navbar-header">
+          <div class="btn-more js-btn-more visible-xs">
+            <a href="#"><i class="icon-dots-three-vertical "></i></a>
+          </div>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"
+            aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <img style="    margin-left: -140px;" src="{% static 'img/logo-removebg-preview.png' %}">
+
+        </div>
+
+        <div id="navbar-collapse" class="navbar-collapse collapse" style="    position: absolute;
+        right: 360px;
+    ">
+          <ul class="nav navbar-nav navbar-right">
+            <li class=""><a href="/" style="font-size: 25px;">Home</a></li>
+            <li><a href="/courses/" style="font-size: 25px;">Labs</a></li>
+            <li><a href="/team/" style="font-size: 25px;">Teams</a></li>
+            <li><a href="/about/" style="font-size: 25px;">About Us</a></li>
+            <li class="dropdown">
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle" style="font-size: 25px;">More</a>
+              <ul class="dropdown-menu">
+
+                <!-- <li><a href="/courses/" style="font-size: 25px;">Courses</a></li> -->
+                <!-- <li><a href="course-single.html" style="font-size: 25px;">Course Single</a></li> -->
+                <li><a href="/gallery/" style="font-size: 25px;">Gallery</a></li>
+
+                <li><a href="/news/" style="font-size: 25px;">News</a></li>
+                <li><a href="/statistic/" style="font-size: 25px;">Statistics</a></li>
+              </ul>
+            </li>
+            <li><a href="/contact/" style="font-size: 25px;">Contact</a></li>
+            {% if request.user.is_authenticated %}
+            <li><a href="/logout/" style="font-size: 25px;"><span class="material-symbols-outlined">
+                  logout
+                </span>
+                <p style="    position: relative;
+              top: -24px;
+              right: -26px;">Logout</p>
+              </a></li>
+            {% else %}
+            <li><a href="/login/" style="font-size: 25px;"><span class="material-symbols-outlined">
+                  Login
+                </span>
+                <p style="    position: relative;
+              top: -24px;
+              right: -26px;">Login</p>
+              </a></li>
+            {% endif %}
+          </ul>
+        </div>
+        <img style="    position: absolute;
+            width: 122px;
+        right: 30px;" src="{% static 'img/iitrsmalllogo.jpg' %}">
+      </div>
+    </nav>
+    {% block body %}
+
+    <section class="flexslider">
+      <ul class="slides">
+        <li style="background-image: url('/static/img/imgi.JPG')" class="">
+
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 col-md-offset-2">
+                <div class="probootstrap-slider-text text-center">
+                  <h1 class="probootstrap-heading probootstrap-animate"> </h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li style="background-image: url('/static/img/imgi1.JPG')" class="">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 col-md-offset-2">
+                <div class="probootstrap-slider-text text-center">
+                  <h1 class="probootstrap-heading probootstrap-animate"></h1>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </li>
+        <li style="background-image: url(/static/img/imgi2.JPG)" class="">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 col-md-offset-2">
+                <div class="probootstrap-slider-text text-center">
+                  <h1 class="probootstrap-heading probootstrap-animate"></h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="probootstrap-section probootstrap-section-colored">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-left section-heading probootstrap-animate">
+            <h2>Welcome to Virtual Labs IIT Roorkee</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="probootstrap-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="probootstrap-flex-block">
+              <div class="probootstrap-text probootstrap-animate">
+                <h3><b>About Virtual Labs</b></h3>
+                <p>The Virtual lab presents a unique opportunity to boost the quality of engineering education, deepen
+                  understanding and provide the necessary practical skills to young minds through cost effective
+                  outreach and distance learning activities.....<a style="color: red;text-decoration: underline ;"
+                    href="/about/" class="">Read More !</a></p>
+                <p style="margin-bottom: 10px;position: absolute;    border: 2px solid #49D292;
+                background-color: #49D292;
+                border-radius: 22px;"><a style="color: white;    padding: 16px" href="/development/">Development
+                    Activities...</a></p>
+                <p style="position: absolute; bottom: 90px;    border: 2px solid #49D 292;
+                background-color: #49D292;
+                border-radius: 22px;"><a style="color: white;    padding: 16px" href="/outreach/">Outreach
+                    Activities...</a></p>
+              </div>
+              <div class="probootstrap-text probootstrap-animate" style="    width: 55%;
+              margin-left: 40px;">
+                <h3><b>Message from PI : </b></h3>
+                <figure class="media">
+                  <img src="static/img/prof_img.PNG" style="    width: 144px;
+                  height: 149px;
+                  border-radius: 50%;" alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive">
+                </figure>
+                <br>
+                <p>Welcome to IIT Roorkee's Virtual Labs, funded by the Ministry of Education, India, since 2010. We
+                  provide online resources, labs, and opportunities for students nationwide. Join us in our mission for
+                  educational excellence. <a href="/message/" style="color: red; text-decoration: underline;">More..</a> </p>
+
+                <p style="    margin-bottom: 0px;">Good Luck!</p>
+                <p style="    margin-bottom: 0px;">Prof. R S Anand</p>
+                <p style="    margin-bottom: 0px;">Project Institutel Coordinator, Virtual Labs</p>
+                <p style="    margin-bottom: 0px;">IIT Roorkee, India</p>
+                <!-- <p style="    margin-bottom: 0px;"><a href="#" class="btn btn-primary">Read More...</a></p> -->
+              </div>
+              <div class="probootstrap-image probootstrap-animate">
+                <!-- <iframe style="margin-left: 1%;" width="750" height="620"
+                  src="https://www.youtube.com/embed/DznUDsHiixY" title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="probootstrap-section" id="probootstrap-counter">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 probootstrap-animate">
+            <div class="probootstrap-counter-wrap">
+              <div class="probootstrap-icon">
+                <i class="icon-users2"></i>
+              </div>
+              <div class="probootstrap-text">
+                <span class="probootstrap-counter">
+                  <span class="js-counter" data-from="0" data-to="19" data-speed="5000"
+                    data-refresh-interval="50">1</span>+
+                </span>
+                <span class="probootstrap-counter-label">FDP</span>l
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 probootstrap-animate">
+            <div class="probootstrap-counter-wrap">
+              <div class="probootstrap-icon">
+                <i class="icon-user-tie"></i>
+              </div>
+              <div class="probootstrap-text">
+                <span class="probootstrap-counter">
+                  <span class="js-counter" data-from="0" data-to="156" data-speed="5000"
+                    data-refresh-interval="50">1</span>+
+                </span>
+                <span class="probootstrap-counter-label">Workshops Runs</span>
+              </div>
+            </div>
+          </div>
+          <div class="clearfix visible-sm-block visible-xs-block"></div>
+          <div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 probootstrap-animate">
+            <div class="probootstrap-counter-wrap">
+              <div class="probootstrap-icon">
+                <i class="icon-library"></i>
+              </div>
+              <div class="probootstrap-text">
+                <span class="probootstrap-counter">
+                  <span class="js-counter" data-from="0" data-to="97" data-speed="5000"
+                    data-refresh-interval="50">1</span>+
+                </span>
+                <span class="probootstrap-counter-label">Nodal Centers</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 probootstrap-animate">
+
+            <div class="probootstrap-counter-wrap">
+              <div class="probootstrap-icon">
+                <i class="icon-smile2"></i>
+              </div>
+              <div class="probootstrap-text">
+                <span class="probootstrap-counter">
+                  <span class="js-counter" data-from="0" data-to="1199073" data-speed="5000"
+                    data-refresh-interval="50">1</span>+
+                </span>
+                <span class="probootstrap-counter-label">Usage</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="probootstrap-section probootstrap-section-colored probootstrap-bg probootstrap-custom-heading probootstrap-tab-section"
+      style="background-image: url(static/img/slider_2.jpg)">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center section-heading probootstrap-animate">
+            <h2 class="mb0">Highlights</h2>
+          </div>
+        </div>
+      </div>
+      <div class="probootstrap-tab-style-1">
+        <ul class="nav nav-tabs probootstrap-center probootstrap-tabs no-border">
+          <li class="active"><a data-toggle="tab" href="#featured-news">Featured Events</a></li>
+          <li><a data-toggle="tab" href="#upcoming-events">Upcoming Events</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="probootstrap-section probootstrap-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+
+            <div class="tab-content">
+
+              <div id="featured-news" class="tab-pane fade in active">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="owl-carousel" id="owl1">
+                      <div class="item">
+                        <a href="#" class="probootstrap-featured-news-box">
+                          <figure class="probootstrap-media"><img src="static/img/banner2.png"
+                              alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
+                          <div class="probootstrap-text">
+                            <h3>Workshop on Virtual Labs</h3>
+                            <p>Organized by Electric Engineering Department IIT Roorkee.</p>
+                            <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
+
+                          </div>
+                        </a>
+                      </div>
+                      <!-- END item -->
+                      <div class="item">
+                        <a href="#" class="probootstrap-featured-news-box">
+                          <figure class="probootstrap-media"><img src="static/img/banner3.jpg"
+                              alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
+                          <div class="probootstrap-text">
+                            <h3>Academic Visit</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, officia.</p>
+                            <span class="probootstrap-date"><i class="icon-calendar"></i>March 9, 2018</span>
+
+                          </div>
+                        </a>
+                      </div>
+                      <!-- END item -->
+                      <div class="item">
+                        <a href="#" class="probootstrap-featured-news-box">
+                          <figure class="probootstrap-media"><img src="static/img/banner8.jpg"
+                              alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
+                          <div class="probootstrap-text">
+                            <h3>Workshops on Virtual Labs</h3>
+                            <p>Dhyananda Sagar University Kundlu Gate , Bangalore.</p>
+                            <span class="probootstrap-date"><i class="icon-calendar"></i>April 5 & 6, 2017</span>
+                          </div>
+                        </a>
+                      </div>
+                      <!-- END item -->
+                      <div class="item">
+                        <a href="#" class="probootstrap-featured-news-box">
+                          <figure class="probootstrap-media"><img src="static/img/img_sm_3.jpg"
+                              alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
+                          <div class="probootstrap-text">
+                            <h3>Tempora consectetur unde nisi</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, earum.</p>
+                            <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
+
+
+                          </div>
+                        </a>
+                      </div>
+                      <!-- END item -->
+                    </div>
+                  </div>
+                </div>
+                <!-- END row -->
+                <div class="row">
+                  <div class="col-md-12 text-center">
+                    <p><a href="/news/" class="btn btn-primary">View all news</a></p>
+                  </div>
+                </div>
+              </div>
+              <div id="upcoming-events" class="tab-pane fade">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="owl-carousel" id="owl2">
+                      <div class="item">
+                        <a href="#" class="probootstrap-featured-news-box">
+                          <figure class="probootstrap-media"><img src="static/img/img_sm_3.jpg"
+                              alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
+                          <div class="probootstrap-text">
+                            <h3>Tempora consectetur unde nisi</h3>
+                            <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
+                            <span class="probootstrap-location"><i class="icon-location2"></i>White Palace, Brooklyn,
+                              NYC</span>
+                          </div>
+                        </a>
+                      </div>
+                      <!-- END item -->
+                      <div class="item">
+                        <a href="#" class="probootstrap-featured-news-box">
+                          <figure class="probootstrap-media"><img src="static/img/img_sm_1.jpg"
+                              alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
+                          <div class="probootstrap-text">
+                            <h3>Tempora consectetur unde nisi</h3>
+                            <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
+                            <span class="probootstrap-location"><i class="icon-location2"></i>White Palace, Brooklyn,
+                              NYC</span>
+                          </div>
+                        </a>
+                      </div>
+                      <!-- END item -->
+                      <div class="item">
+                        <a href="#" class="probootstrap-featured-news-box">
+                          <figure class="probootstrap-media"><img src="static/img/img_sm_2.jpg"
+                              alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
+                          <div class="probootstrap-text">
+                            <h3>Tempora consectetur unde nisi</h3>
+                            <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
+                            <span class="probootstrap-location"><i class="icon-location2"></i>White Palace, Brooklyn,
+                              NYC</span>
+                          </div>
+                        </a>
+                      </div>
+                      <!-- END item -->
+                      <div class="item">
+                        <a href="#" class="probootstrap-featured-news-box">
+                          <figure class="probootstrap-media"><img src="static/img/img_sm_3.jpg"
+                              alt="Free Bootstrap Template by ProBootstrap.com" class="img-responsive"></figure>
+                          <div class="probootstrap-text">
+                            <h3>Tempora consectetur unde nisi</h3>
+                            <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
+                            <span class="probootstrap-location"><i class="icon-location2"></i>White Palace, Brooklyn,
+                              NYC</span>
+                          </div>
+                        </a>
+                      </div>
+                      <!-- END item -->
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 text-center">
+                    <p><a href="" class="btn btn-primary">View all events</a></p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="probootstrap-section probootstrap-bg-white probootstrap-border-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3 text-center section-heading probootstrap-animate">
+            <h2>Our Featured Courses</h2>
+            <!-- <p class="lead">Sed a repudiandae impedit voluptate nam Deleniti dignissimos perspiciatis nostrum porro
+              nesciunt</p> -->
+          </div>
+        </div>
+        <!-- END row -->
+        <div class="row">
+          <div class="col-md-6">
+            <div class="probootstrap-service-2 probootstrap-animate">
+              <div class="image">
+                <div class="image-bg">
+                  <img src="static/img/image2.jpg" alt="Free Bootstrap Template by ProBootstrap.com">
+                </div>
+              </div>
+              <div class="text">
+                <!-- <span class="probootstrap-meta"><i class="icon-calendar2"></i> July 10, 2017</span> -->
+                <h3>Electronics & Communications</h3><br>
+                <p>Electronics and Communication Engineering involves the design and development of electronic devices,
+                  communication systems, and networks, enabling modern technologies.</p>
+                <p><a href="/courses/" class="btn btn-primary">Explore Labs</a> <span class="enrolled-count">2,928
+                    students
+                    enrolled</span></p>
+              </div>
+            </div>
+
+            <div class="probootstrap-service-2 probootstrap-animate">
+              <div class="image">
+                <div class="image-bg">
+                  <img src="static/img/img3.jpg" style="width: 189%;
+                  height: 242%;
+    
+                  
+                  margin-left: -55px;" alt="Free Bootstrap Template by ProBootstrap.com">
+                </div>
+              </div>
+              <div class="text">
+                <!-- <span class="probootstrap-meta"><i class="icon-calendar2"></i> July 10, 2017</span> -->
+                <h3>Chemical Engineering</h3>
+                <p>Biotechnical Engineering blends biology and technology, impacting agriculture. Chemical Engineering
+                  applies chemistry principles to industrial processes.</p>
+                <p><a href="/courses/" class="btn btn-primary">Explore Labs</a> <span class="enrolled-count">7,202
+                    students
+                    enrolled</span></p>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-6">
+            <div class="probootstrap-service-2 probootstrap-animate">
+              <div class="image">
+                <div class="image-bg">
+                  <img src="static/img/img3.png" style="width: 297%;
+                  height: 256%;
+                  margin-left: -83px;" alt="Free Bootstrap Template by ProBootstrap.com">
+                </div>
+              </div>
+              <div class="text">
+                <!-- <span class="probootstrap-meta"><i class="icon-calendar2"></i> July 10, 2017</span> -->
+                <h3>Computer Science & Engineering
+                </h3>
+                <p>Computer engineers develop hardware and software systems, from microprocessors to software
+                  applications, shaping the digital landscape and advancing technology.</p>
+                <p><a href="/courses/" class="btn btn-primary">Explore Labs</a> <span class="enrolled-count">12,582
+                    students
+                    enrolled</span></p>
+              </div>
+            </div>
+
+            <div class="probootstrap-service-2 probootstrap-animate">
+              <div class="image">
+                <div class="image-bg">
+                  <img src="static/img/img4.jpg" alt="Free Bootstrap Template by ProBootstrap.com">
+                </div>
+              </div>
+              <div class="text">
+                <!-- <span class="probootstrap-meta"><i class="icon-calendar2"></i> July 10, 2017</span> -->
+                <h3> Electrical Engineering
+                </h3>
+                <p> Electrical engineers work with electronics, power systems, and circuits, creating electrical
+                  solutions that power our modern world.</p>
+                <p><a href="/courses/" class="btn btn-primary">Explore Labs</a> <span class="enrolled-count">9,582
+                    students
+                    enrolled</span></p>
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="probootstrap-service-2 probootstrap-animate">
+                <div class="image">
+                  <div class="image-bg">
+                    <img src="static/img/img5.jpg" style="width: 423px;
+                    margin-left: -37px;" alt="Free Bootstrap Template by ProBootstrap.com">
+                  </div>
+                </div>
+                <div class="text">
+                  <!-- <span class="probootstrap-meta"><i class="icon-calendar2"></i> July 10, 2017</span> -->
+                  <h3> Biotechnology and Biomedical Engineering
+                  </h3>
+                  <p>Biotechnical Engineering merges biology and technology for various applications. Biomedical
+                    Engineering focuses on medical devices to enhance healthcare.</p>
+                  <p><a href="/courses/" class="btn btn-primary">Explore Labs</a> <span class="enrolled-count">2,928
+                      students
+                      enrolled</span></p>
+                </div>
+              </div>
+
+              <div class="probootstrap-service-2 probootstrap-animate">
+                <div class="image">
+                  <div class="image-bg">
+                    <img src="static/img/img9.jpg" style="    width: 465px;"
+                      alt="Free Bootstrap Template by ProBootstrap.com">
+                  </div>
+                </div>
+                <div class="text">
+                  <!-- <span class="probootstrap-meta"><i class="icon-calendar2"></i> July 10, 2017</span> -->
+                  <h3> Mechanical Engineering
+                  </h3>
+                  <p> Mechanical engineers design and optimize machinery, systems, and devices, applying principles of
+                    physics and material science for various industries.</p>
+                  <p><a href="/courses/" class="btn btn-primary">Explore Labs</a> <span class="enrolled-count">7,202
+                      students
+                      enrolled</span></p>
+                </div>
+              </div>
+              <div class="probootstrap-service-2 probootstrap-animate">
+                <div class="image">
+                  <div class="image-bg">
+                    <img src="static/img/img7.png" style="    width: 257px;
+                    margin-left: -17px;" alt="Free Bootstrap Template by ProBootstrap.com">
+                  </div>
+                </div>
+                <div class="text">
+                  <!-- <span class="probootstrap-meta"><i class="icon-calendar2"></i> July 10, 2017</span> -->
+                  <h3> Physical Sciences
+                  </h3>
+                  <p> Physical science explores the fundamental principles governing the natural world, covering physics
+                    and chemistry, and aims to understand the properties and behaviors of matter and energy.</p>
+                  <p><a href="/courses/" class="btn btn-primary">Explore Labs</a> <span class="enrolled-count">7,202
+                      students
+                      enrolled</span></p>
+                </div>
+              </div>
+
+            </div>
+            <div class="col-md-6">
+              <div class="probootstrap-service-2 probootstrap-animate">
+                <div class="image">
+                  <div class="image-bg">
+                    <img src="static/img/img6.jpg" style="
+                    width: 453px;
+                    margin-left: -86px;
+                " alt="Free Bootstrap Template by ProBootstrap.com">
+                  </div>
+                </div>
+                <div class="text">
+                  <!-- <span class="probootstrap-meta"><i class="icon-calendar2"></i> July 10, 2017</span> -->
+                  <h3> Civil Engineering
+                  </h3>
+                  <p>Civil engineers design and construct infrastructure like buildings and bridges, ensuring safety and
+                    functionality in urban environments.</p>
+                  <p><a href="/courses/" class="btn btn-primary">Explore Labs</a> <span class="enrolled-count">12,582
+                      students
+                      enrolled</span></p>
+                </div>
+              </div>
+
+              <div class="probootstrap-service-2 probootstrap-animate">
+                <div class="image">
+                  <div class="image-bg">
+                    <img src="static/img/img8.jpg" style="    width: 414px;"
+                      alt="Free Bootstrap Template by ProBootstrap.com">
+                  </div>
+                </div>
+                <div class="text">
+                  <!-- <span class="probootstrap-meta"><i class="icon-calendar2"></i> July 10, 2017</span> -->
+                  <h3> Chemical Sciences
+                  </h3>
+                  <p>Chemical science delves into the composition, structure, properties, and transformations of matter.
+                    It underpins fields like chemistry, chemical engineering, and materials science.</p>
+                  <p><a href="/courses/" class="btn btn-primary">Explore Labs</a> <span class="enrolled-count">9,582
+                      students
+                      enrolled</span></p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+    </section>
+    <hr>
+
+
+
+    <section class="probootstrap-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3 text-center section-heading probootstrap-animate"
+            style="margin-left: -10%;">
+            <div style="margin:0px 0px 10px 0px">
+              <br>
+              <h2 style="margin-left: 20%;"><b>Vlabs Nodal Centers</b></h2><br>
+              <marquee direction="up" height="520" onmouseout="this.start()" onmouseover="this.stop()" scrolldelay="1"
+                style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size:14px;">
+                <ol
+                  style="font-weight:700;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size:20px;text-align: justify;color: rgb(0, 0, 82);">
+
+                  <li>Deenbandhu Chhotu Ram University of Science and Technology, 50th K.M.
+                    Stone,NH-1,Murthal,Sonipat,Haryana</li>
+                  <li>Dharmsingh Desai University, College Road, Nadiad, Gujarat</li>
+                  <li>Parul Institute Of Engineering And Technology, Post Limda, Vadodara, Waghodia,
+                    Gujarat</li>
+                  <li>G H Patel College of Engineering andTechnology, Bakrol Rd, Mota Bazaar, Vallabh
+                    Vidhyanagar, Anand, Gujarat</li>
+                  <li>Jaypee University of Information Technology, Waknaghat, Himachal Pradesh</li>
+                  <li>Sharda University, Plot No. 32-34, Knowledge Park III, Greater Noida, Uttar
+                    Pradesh</li>
+                  <li>G B Pant Govt Engineering College, Okhla Phase III, Okhla Industrial Estate, New
+                    Delhi, Delhi</li>
+                  <li>College Of Engineering Roorkee, Haridwar, Roorkee, Uttarakhand</li>
+                  <li>Deogiri Institute Of Engineering And Management Studies, Railway Station Road,
+                    Near Hotel VITS, Vedant Nagar, Aurangabad, Maharashtra</li>
+                  <li>NIT Jalandhar, GT Road, Amritsar Bypass Road, Jalandhar, Punjab</li>
+                  <li>Institute Of Technology Roorkee, 8th Km Dehradun Road, Puhana, Roorkee,
+                    Uttarakhand</li>
+                  <li>NIELIT Aurangabad, Aurangabad Maharashtra, Dr. B.A.M. University Campus,
+                    Aurangabad, Maharashtra</li>
+                  <li>University Institute of Engineering and Technology, Punjab University, Sector
+                    14, Chandigarh, Punjab</li>
+                  <li>NIT Raipur, Opp Ayurvedic College, GE Rd, Raipur, Chhattisgarh</li>
+                  <li>SGGS Institute of Engineering and Technology, Vishnupuri, Nanded, Maharashtra
+                  </li>
+                  <li>Roorkee Institute Of Technology, 8th Km Dehradun Road, Puhana, Roorkee,
+                    Uttarakhand</li>
+                  <li>Women Institute Of Technology, Post Office, Chandanwadi, Prem Nagar Sudhowala,
+                    Dehradun, Uttarakhand</li>
+                  <li>Thapar University, Bhadson Road, Patiala, Punjab</li>
+                  <li>Roorkee College Of Engineering, 5th Km. Roorkee-Haridwar, Canal Road, Bajuheri,
+                    Uttarakhand</li>
+                  <li>Sant Longowal Institute of Engineering and Technology, Campus Road, Sangrur,
+                    Longowal, Punjab</li>
+                  <li>BKIT Bhalki, Bhalki-Humnabad Road, Bhalki, Bidar, Karnataka</li>
+                  <li>Govt Engineering College Bikaner, Karni Industrial Area, Pugal Road, Bikaner,
+                    Bikaner, Rajasthan</li>
+                  <li>Central Institute of Technology, Balagaon, 01, Assam State Highway Number 2,
+                    Balajan, Assam</li>
+                  <li>CMR College of Engineering and Technology, Survey No. 69, Medchal Road,
+                    Kandlakoya Village, Hyderabad, Telangana</li>
+                  <li>Chandigarh University National Highway 95, Chandigarh-Ludhiana Highway, Mohali,
+                    Punjab</li>
+                  <li>Tulas Institute The Engineering and Management College, Chakrata Road, Selaqui,
+                    Dehradun District, Dhoolkot, Uttarakhand</li>
+                  <li>Graphic Era University, 566/6, Bell Road, Society Area, Clement Town, Dehradun,
+                    Uttarakhand</li>
+                  <li>Dev Bhoomi Institute Of Technology, 104, E C Road, E C Road, Dehradun,
+                    Uttarakhand</li>
+                  <li>Quantum school of technology, Quantum Global Campus Mandawar 22 Km milestone
+                    Roorkee - Dehradun Highway NH 73, Roorkee, Uttarakhand India.</li>
+                  <li>Amrapali Group of Institution, Kaladhungi Road,Shiksha Nagar, Haldwani,
+                    Uttarakhand</li>
+                  <li>DIT University, Mussoorie Diversion Road, Makkawala, Dehradun, Uttarakhand</li>
+                  <li>Shri Bhagubhai Mafatal Polytechnic, Irla, N. R. G Marg, Opposite Cooper
+                    Hospital, Vileparle, Mumbai, Maharashtra</li>
+                  <li>North Eastern Hill University, mshing Mawkynroh, Shillong, Meghalaya</li>
+                  <li>Veltech MultiTech Dr Rangarajan Dr Sakunthala Engineering College, 42,Alamathi
+                    Road,Avadi,Thiruvallur, Chennai, Tamil Nadu</li>
+                  <li>Lovely Professional University, Jalandhar-Delhi G.T. Road, National Highway 1,
+                    Phagwara, Punjab</li>
+                  <li>Northen India Engineering College, FC-26, Shastri Park, Near Zero Pusta, Delhi
+                  </li>
+                  <li>ABES Engineering College, 19th KM Stone, NH-24, Ghaziabad, Uttar Pradesh</li>
+                  <li>Sundeerdeep Engineering College, NH-24, Delhi-Hapur Road, Dasna Ghaziabad.
+                    UttarPradesh</li>
+                  <li>Phonics Group of Institution, smli Khers, Dharampur,12th Mile Stone,
+                    Bhagwanpur-Haridwar Bypass Roorkee, Uttarakhand</li>
+                  <li>Seemant Institute of Technology, GIC Campus, Pithoragarh. Uttarakhand</li>
+                  <li>Shri Ramswaroop Memorial University, Lucknow Deva Road, Barabanki Lucknow. Uttar
+                    Pradesh</li>
+                  <li>ABES Institute of Technology, 19th KM Stone, NH-24, Ghaziabad. Uttar Pradesh
+                  </li>
+                  <li>G B Pant Engineering College, Ghurdauri, Pauri Garhwal. Uttarakhand</li>
+                  <li>Visvesvaraya National Institute of Technology, South Ambazari Road, Nagpur,
+                    Maharashtra</li>
+                  <li>Shivalik College of Engineering, Shiniwala, P.O. Sherpur, Shimla Road Dehradun,
+                    Uttarakhand</li>
+                  <li>Maya Institute of Technology and Management, NH-72, Near Hotel The Competent
+                    Palace Chakrata Road, Selaqui, Dehradun, Uttarakhand</li>
+                  <li>Beehive College of Engineering and Technology, Beehive City, Central Hope Town,
+                    Selaqui Dehradun, Uttarakhand</li>
+                  <li>Institute of Technoleogy Gopeshwar, Gopeshwar Kothiyalsain, Chamoli
+                    Uttarakhand-246424</li>
+                  <li>International Institute of Technology and Management, G.T Karnal Road, Murthal,
+                    Sonipat NCR-Delhi, Sonipat, Haryana</li>
+                  <li>Dayananda Sagar University School of Engineering Hosur Main Road, Kudlu Gate,
+                    Begur Hobli Bangalore</li>
+                  <li>National Institute of Technology Meghalaya, Bijni Complex, Laitumkhrah Shillong
+                    Meghalaya</li>
+                  <li>Sachdeva Institute of Technology Farah, Mathura, Uttar Pradesh</li>
+                  <li>JB Institute of Technology, Shankerpur, Dehradun</li>
+                  <li>College of Technology pantnagar, pantnagar, Uttarakhand</li>
+                  <li>Aryabhatta international college of technical education, Patel indoor stadium,
+                    Ajmer</li>
+                  <li>Delhi Institute of Technology Management and Research, New Industrial Town,
+                    Faridabad, Haryana</li>
+                  <li>Geetanjali Institute of Technical Studies, Airport Road, Dabok, Udaipur,
+                    Rajasthan</li>
+                  <li>Aryabhatta College of Engineering and Research Centre, Chatari Road, Behind
+                    Mahila Kalyan Vikas Mandal, Chachiyawas, Ajmer, Rajasthan</li>
+                  <li>Pacific Institute of Technology, Pacific Hills, Pratapnagar Extn, Airport Road,
+                    Debari, Udaipur, Rajasthan</li>
+                  <li>Swarrnim Institute of Technology, Post Bhoyan Rathod, Near ONGC WSS, Opp. IFCCO,
+                    Adalal Kaloj Highway, Gandhinagar, Gujarat</li>
+                  <li>Shri Shankaracharya Institute of Professional Management and Technology, Old
+                    Dhamtari Road, Sejabahar P.O., Mujgahan, Raipur, Chhattisgarh</li>
+                  <li>VNIT Nagpur</li>
+                  <li>SS College of Engineering, SS Hills, Jhamar Kotra Road, Umarda, Udaipur.
+                    Rajasthan</li>
+                  <li>Model Institute of Engineering and Technology, Kot Bhalwal, Jammu, Jammu and
+                    Kashmir</li>
+                  <li>Faculty Of Engineering and Architecture, MBM Engineering College University
+                    Jodhpur, Rajasthan</li>
+                  <li>University Institute of Engineering and Technology, Jangalote, Kathua, Jammu and
+                    Kashmir</li>
+                  <li>Government college of engineering and technology, Chak Bhalwal, Jammu City,
+                    Jammu and Kashmir</li>
+                  <li>NIT Kurukshetra HaryanaNational Institute of Technology Kurukshetra</li>
+                  <li>Shrinath Ji Institute of Technology and Engineering, Upali Oden, Nathdwara
+                    District. Rajsamand</li>
+                  <li>SR Group of Institutions16 km , Gwalior Road , Ambabai Jhansi</li>
+                  <li>Khandelwal Collage of Management and Technology, 14 km stone NH 74 kalapur
+                    barailly UP</li>
+                  <li>BENNETT UNIVERSITYPLOT NO; 8-11, STREET 2,TECHZONE,GREATER NOIDA UP</li>
+                  <li>Guru Nanak Dev Engineering College, Gill Road, Gill Park, Ludhiana</li>
+                  <li>Nathdwara Institute of Engineering and Technology, Nathdwara, Udaipur</li>
+                  <li>Atal Bihari Vajpayee Government Institute of Engineering and Technology,
+                    Pragatinagar, Kotkhai, Shimla</li>
+                  <li>Faculty of Engineering and Technology, Gurukul Kangri Vishwavidyalaya, Haridwar,
+                    Uttarakhand</li>
+                  <li>Invertis UniversityNH-24, Delhi Lucknow Highway, Bareilly</li>
+                  <li>Mahatma Jyotiba Phule Rohilkhand University, Pilibhit Bypass Road, Bareilly,
+                    Uttar Pradesh</li>
+                  <li>Bipin Tripathi Kumaon Institute of TechnologyDwarahat, Almora, Uttarakhand</li>
+                  <li>Late Chandrashekhar Ji Poorv Pradhanmantri Smarak Mahavidyalaya, Rampur Kanva,
+                    Seorai, Distt. Ghazipur</li>
+                  <li>Gudlavalleru Engineering CollegeSeshadri Rao Knowledge Village, Gudlavalleru,
+                    Krishna District A.P.</li>
+                  <li>Shree Dev Bhoomi Institute of Education Science and TechnologyMazhon, P.O.
+                    Poundha, Dehradun U.K.</li>
+                  <li>Rajshree Institute of Management and Technology16 km, NH-30, Pilibhit Road,
+                    Bareilly, Uttar Pradesh</li>
+                  <li>RSA Rungta College of Engineering and Technology, Rungta Knowledge City, Kohka
+                    Kurud Road, Bhilai, Chhattisgarh</li>
+                  <li>Satya College of Institutions72 KM Stone, Delhi-Mathura Road,Village Mitrol
+                    Tech. Hodal, Dist. Palwal, Haryana</li>
+                  <li>Institute of Engineering and Rural Technology PrayagrajInstitute of Engineering
+                    and Rural Technology, 26, Chatham line, Prayagraj , UP - 211002, India</li>
+                  <li>Institute of Engineering and Technology, Sitapur Road, Sector F, Jankipuram,
+                    Lucknow, Uttar Pradesh</li>
+                  <li>Institute of Engineering and Technology, Sitapur Road, Sector F, Jankipuram,
+                    Lucknow, Uttar Pradesh</li>
+                  <li>Faculty of Engineering and Technology, Second Campus, University of Lucknow,
+                    Jankipuram Extension, Lucknow, Uttar Pradesh</li>
+
+                </ol><br><br><br><br><br><br><br><br>
+              </marquee>
+            </div>
+
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-3 col-sm-6">
+            <iframe style=" margin-left: 215%;
+           
+            position: absolute;
+            bottom: 103px;
+        " width="580" height="510" src="https://www.youtube.com/embed/DznUDsHiixY" title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+
+          </div>
+          <div>
+            <section id="content1">
+              <h3>facebook</h3>
+              <iframe
+                src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FVLabsIITDelhi%2F&tabs=timeline&width=248&height=365&small_header=true&adapt_container_width=false&hide_cover=false&show_facepile=true&appId"
+                width="248" height="365" style="background-color:black;border:none;overflow:hidden" scrolling="no"
+                frameborder="0" allowfullscreen="true"
+                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+
+            </section>
+          </div>
+          <div>
+            <section id="content2">
+              <a class="twitter-timeline" href="https://twitter.com/vlabsiitr?ref_src=twsrc%5Etfw">Tweets by
+                vlabsiitr</a>
+              <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </section>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="probootstrap-section probootstrap-bg probootstrap-section-colored probootstrap-testimonial"
+      style="background-image: url(/static/img/slider_4.jpg);">
+      <div class="container">
+        <div class="row" style="    position: relative;
+        bottom: -41px;">
+          <div class="col-md-6 col-md-offset-3 text-center section-heading probootstrap-animate">
+            <h2>Students Testimonial</h2>
+            <p class="lead">Student reviews about our Bootcamps and Outreach activities</p>
+          </div>
+        </div>
+        <!-- END row -->
+        <div class="row">
+          <div class="col-md-12 probootstrap-animate">
+            <div class="owl-carousel owl-carousel-testimony owl-carousel-fullwidth">
+              <div class="item">
+
+                <div class="probootstrap-testimony-wrap text-center">
+                  <figure>
+                    <img src="/static/img/person_1.jpg" alt="Free Bootstrap Template by ProBootstrap.com">
+                  </figure>
+                  <blockquote class="quote">&ldquo;Design must be functional and functionality must be translated into
+                    visual aesthetics, without any reliance on gimmicks that have to be explained.&rdquo; <cite
+                      class="author"> &mdash; <span>Mike Fisher</span></cite></blockquote>
+                </div>
+
+              </div>
+              <div class="item">
+                <div class="probootstrap-testimony-wrap text-center">
+                  <figure>
+                    <img src="/static/img/person_2.jpg" alt="Free Bootstrap Template by ProBootstrap.com">
+                  </figure>
+                  <blockquote class="quote">&ldquo;Creativity is just connecting things. When you ask creative people
+                    how they did something, they feel a little guilty because they didn’t really do it, they just saw
+                    something. It seemed obvious to them after a while.&rdquo; <cite class="author"> &mdash;<span>Jorge
+                        Smith</span></cite></blockquote>
+                </div>
+              </div>
+              <div class="item">
+                <div class="probootstrap-testimony-wrap text-center">
+                  <figure>
+                    <img src="/static/img/person_3.jpg" alt="Free Bootstrap Template by ProBootstrap.com">
+                  </figure>
+                  <blockquote class="quote">&ldquo;I think design would be better if designers were much more skeptical
+                    about its applications. If you believe in the potency of your craft, where you choose to dole it out
+                    is not something to take lightly.&rdquo; <cite class="author">&mdash; <span>Brandon
+                        White</span></cite></blockquote>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <!-- END row -->
+      </div>
+    </section>
+
+    <section class="probootstrap-section">
+      <div class="container">
+        <!-- <div class="row"> -->
+        <!-- <div class="col-md-6 col-md-offset-3 text-center section-heading probootstrap-animate"> -->
+        <h2 align="center">Why Choose Virtual Labs</h2><br>
+        <!-- <p class="lead">the choice of a virtual lab at IIT offers accessibility, cost-efficiency, flexibility,
+              safety, scalability, and support for remote learning, making it an attractive option for students and
+              researchers looking to conduct experiments and research in a digital environment.</p> -->
+        <!-- </div> -->
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="service left-icon probootstrap-animate">
+              <div class="icon"><i class="icon-checkmark"></i></div>
+              <div class="text">
+                <h3>Accessibility</h3>
+                <p>Virtual labs provide easy access to specialized equipment and experiments.</p>
+              </div>
+            </div>
+            <div class="service left-icon probootstrap-animate">
+              <div class="icon"><i class="icon-checkmark"></i></div>
+              <div class="text">
+                <h3>Flexibility</h3>
+                <p> Virtual labs offer convenient scheduling and location-independent learning.</p>
+              </div>
+            </div>
+            <div class="service left-icon probootstrap-animate">
+              <div class="icon"><i class="icon-checkmark"></i></div>
+              <div class="text">
+                <h3>Cost-Efficiency</h3>
+                <p>They are more affordable to set up and maintain than physical labs.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="service left-icon probootstrap-animate">
+              <div class="icon"><i class="icon-checkmark"></i></div>
+              <div class="text">
+                <h3>Safety</h3>
+                <p>They reduce risks associated with hazardous materials and complex equipment.</p>
+              </div>
+            </div>
+
+            <div class="service left-icon probootstrap-animate">
+              <div class="icon"><i class="icon-checkmark"></i></div>
+              <div class="text">
+                <h3>Remote Learning</h3>
+                <p> Ideal for online education, enabling practical experience from anywhere and everywhere.</p>
+              </div>
+            </div>
+
+            <div class="service left-icon probootstrap-animate">
+              <div class="icon"><i class="icon-checkmark"></i></div>
+              <div class="text">
+                <h3>Scalability</h3>
+                <p>They can accommodate a large number of users simultaneously.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- END row -->
+      </div>
+    </section>
+
+    <section class="probootstrap-cta">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="probootstrap-animate" data-animate-effect="fadeInRight">SignUp Now !</h2>
+            <a href="/signup/" role="button" class="btn btn-primary btn-lg btn-ghost probootstrap-animate"
+              data-animate-effect="fadeInLeft">Enroll</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    {% endblock %}
+    <footer class="probootstrap-footer probootstrap-bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="probootstrap-footer-widget">
+              <!-- <h3>About The School</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro provident suscipit natus a cupiditate ab
+                minus illum quaerat maxime inventore Ea consequatur consectetur hic provident dolor ab aliquam eveniet
+                alias</p> -->
+              <h3>Social</h3>
+              <ul class="probootstrap-footer-social">
+                <li><a href="#"><i class="icon-twitter"></i></a></li>
+                <li><a href="#"><i class="icon-facebook"></i></a></li>
+                <li><a href="#"><i class="icon-github"></i></a></li>
+                <li><a href="#"><i class="icon-dribbble"></i></a></li>
+                <li><a href="#"><i class="icon-linkedin"></i></a></li>
+                <li><a href="#"><i class="icon-youtube"></i></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-3 col-md-push-1">
+            <div class="probootstrap-footer-widget">
+              <h3>Links</h3>
+              <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/courses/">Labs</a></li>
+                <li><a href="/team/">Teams</a></li>
+                <li><a href="/news/">News</a></li>
+                <li><a href="/contact/">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="probootstrap-footer-widget">
+              <h3>Contact Info</h3>
+              <ul class="probootstrap-contact-info">
+                <li><i class="icon-location2"></i> <span>Virtual Labs , Electrical Engineering Dept. IIT Roorkee</span>
+                </li>
+                <li><i class="icon-mail"></i><span>virtual-lab@iitr.ac.in</span></li>
+                <li><i class="icon-phone2"></i><span>01332-284501</span></li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+        <!-- END row -->
+
+      </div>
+
+
+    </footer>
+
+  </div>
+  <!-- END wrapper -->
+
+
+  <script src="{%static 'js/scripts.min.js' %}"></script>
+  <script src="{%static 'js/main.min.js' %}"></script>
+  <script src="{%static 'js/custom.js' %}"></script>
+
+</body>
+
+</html>

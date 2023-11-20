@@ -1,0 +1,390 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title> Virtual Labs </title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- Bootstrap 3.3.6 -->
+        <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../../dist/css/AdminLTE.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+    <style>
+          .box{
+            color:#000;
+            padding: 10px;
+            margin-top: 6px;
+            background: #ecf0f5;
+	    width: 30%;
+          }
+    </style>
+		<script>
+            window.onload = function () {
+                document.getElementById("pretest").className = "active treeview";
+            }
+            
+			var text2display = "";
+			var ans = new Array(6);
+				ans[0] = "1. The answer is --- Micro-bending\n";
+				ans[1] = "2. The answer is --- Receiver sensitivity\n";
+				ans[2] = "3. The answer is --- Low\n";
+				ans[3] = "4. The answer is --- Avoided\n";
+				ans[4] = "5. The answer is --- Power\n";
+				
+				
+			var que = new Array(6);
+				que[0] = "q1";
+				que[1] = "q2";
+				que[2] = "q3";
+				que[3] = "q4";
+				que[4] = "q5";
+
+
+			function checkAllQs()
+			{
+        console.log("question array and length",que,que.length)
+				text2display = "";
+				for(var i=0; i < que.length; i++)
+				{
+          let qs = document.getElementsByName(que[i]);
+          console.log("hi")
+  
+				 
+				var question_right ="";
+        var question_wrong ="";
+        console.log("inputs of each question ",que[i],qs, "and length",qs.length)
+				for(var j=0; j < qs.length; j++)
+				{
+          console.log("in inner loop",j,qs)
+          if(qs[j].value=="correct"){
+              console.log("correct",j)
+						//text2display = text2display+(que.indexOf(s)+1)+". Your answer is correct\n"
+            //  question_right = "question_right"+i;
+            //  console.log(question_right)
+               
+						 	document.getElementById('question_right'+i+""+j).style.background='#90EE90';
+               console.log("correctover",i,j)
+							//document.getElementById('question_right').style.color='red';
+						}
+					if(qs[j].checked)
+					{
+            console.log("heloo",j,qs[j])
+						if(qs[j].value=="correct"){
+              console.log("correct",j)
+						//text2display = text2display+(que.indexOf(s)+1)+". Your answer is correct\n"
+            //  question_right = "question_right"+i;
+            //  console.log(question_right)
+               
+						 	document.getElementById('question_right'+i+""+j).style.background='#90EE90';
+               console.log("correctover",i,j)
+							//document.getElementById('question_right').style.color='red';
+						}
+						else if(qs[j].value=="wrong"){
+              // question_wrong = "question_wrong"+i;
+              console.log("question_wrong",j)
+             // text2display = text2display+ ans[que.indexOf(s)];
+							document.getElementById('question_wrong'+i+""+j).style.background='#ffcccb';
+              console.log("wrong over",i,j)
+							//document.getElementById('question_wrong').style.color='white';
+						}
+           
+					}
+				}
+				}
+				// quiz.answerbox.value = text2display;
+				// console.log("hi",quiz.answerbox.value)
+			}
+
+			function reset() {
+				text2display = "";
+					location.reload();
+			}
+        </script>
+    </head>
+
+    <body class="hold-transition skin-blue sidebar-mini">
+        <!--Navigation Bar-->
+<div class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://iitb.ac.in"><span><img src="images/iitb_logo_30dpi.png"></span></a>
+    </div>
+    <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active">
+          <a href="http://vlabs.iitb.ac.in/vlabs-dev/">HOME</a>
+        </li>
+        <li class="active">
+          <a href="http://vlabs.iitb.ac.in/vlabs-dev/labs/labs.html">LABS</a>
+        </li>
+        <!--<li class="active">
+          <a href="http://vlabs.iitb.ac.in/vlabs-dev/Syllabus_Matrix/syllabus.html">SYLLABUS</a>
+        </li>
+        <li class="active">
+          <a href="http://vlabs.iitb.ac.in/vlabs-dev/L1-Form/idea.php">CONTRIBUTE</a>
+        </li>
+        <li class="active">
+          <a href="http://vlabs.iitb.ac.in/vlabs-dev/vlab_tool/index.php ">LAB TOOL</a>
+        </li>
+        <li class="active">
+          <a href="http://vlabs.iitb.ac.in/vlabs-dev/wiki/doku.php">WIKI</a>
+        </li> -->
+        <li class="active">
+          <a href="http://vlabs.iitb.ac.in/gitlab/">GITLAB</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+        
+        <div class="wrapper">
+        	<header class="main-header">
+        <!-- Logo -->
+        <a href="../index.html" class="logo">
+        <p align="center" style="font-size:1em;"><b>OC Lab <!-- Write your lab name --> </b></p>
+    </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top">
+          <!-- Sidebar toggle button-->
+          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+          <section class="content-header">
+            <ol class="breadcrumb">
+              <li>
+                <a href="../index.html"><i class="fa fa-dashboard"></i>Optical Communications Lab</a>
+              </li>
+              <li>
+                <a href="#">Optical Power Measurements<!-- Write your experiment name --> </a>
+              </li>
+              <li class="active">Pre Test</li>
+            </ol>
+          </section>
+        </nav>
+      </header>
+            
+      <!-- Left side column. contains the logo and sidebar -->
+      <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+          <!-- search form -->
+          <form action="#" method="get" class="sidebar-form">
+            <div class="input-group"></div>
+          </form>
+          <!-- /.sear ch form -->
+          <!-- sidebar menu: : style can be found in sidebar.less -->
+            <ul class="sidebar-menu">
+                <li class="treeview" id="aim">
+                    <a href="index.html">
+                        <i class="fa fa-files-o"></i> <span>Aim</span>
+
+                    </a>
+                </li>
+                <li class="treeview" id="theory">
+                    <a href="theory.html" >
+                        <i class="fa fa-files-o"></i>
+                        <span>Theory</span>
+                    </a>
+                </li>
+             <!--   <li class="treeview" id="numerical">
+                    <a href="numerical.php">
+                        <i class="fa fa-laptop"></i>
+                        <span>Numerical</span>
+                        <span class="pull-right-container">
+                        </span>
+                    </a>
+                </li>
+                <li class="treeview" id="program">
+                    <a href="program.php">
+                        <i class="fa fa-laptop"></i>
+                        <span>Program</span>
+                        <span class="pull-right-container">
+                        </span>
+                    </a>
+                </li> -->
+                <li class="treeview" id="pretest">
+                    <a href="pretest.html">
+                        <i class="fa fa-files-o"></i> <span>Pre Test</span>
+
+                    </a>
+                </li>
+                
+                <li class="treeview" id="procedure">
+                    <a href="procedure.html">
+                        <i class="fa fa-files-o"></i> <span>Procedure</span>
+                    </a>
+                </li>
+                <li class="treeview" id="simulation">
+                    <a href="simulation.html">
+                        <i class="fa fa-laptop"></i>
+                        <span>Simulation</span>
+                        <span class="pull-right-container">
+                        </span>
+                    </a>
+                </li>
+
+               
+                
+                <li class="treeview" id="posttest">
+                    <a href=" posttest.html">
+                        <i class=" fa fa-files-o">
+                    </i>
+                    <span>Post Test</span>
+                    <span class="pull-right-container">
+                    </span>
+                    </a>
+                </li>
+                <li class="treeview" id="ref">
+                    <a href="references.html">
+                        <i class="fa fa-files-o"></i>
+                        <span>References</span>
+                        <span class="pull-right-container">
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <!-- /.sidebar -->
+      </aside>
+
+   
+            <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+                <section class="content-header">
+                <h1 align="center">
+                   Optical Power Measurements<!-- Write experiment name here --> 
+                </h1>
+                </section>
+                    <!-- Main content -->
+                    <section class="content">
+                    <h3 style="margin-top:5%"> Post Test </h3>
+                    <p style="font-size:130%; margin-top:2%">
+						<form id="quiz" name = "quiz">
+							<ol>
+								<div >
+									<li>____________ affects both the fiber attenuation and dispersion.</li>
+								</div>
+									<div>
+                  <div class='box' id="question_wrong00">
+									<input type="radio" name="q1"  value="wrong"> Refractive index</input>
+                  </div>
+                  <div class='box' id="question_right01">
+									<input type="radio" name="q1"  value="correct">Micro-bending</input>
+                  </div>
+                  <div class='box' id="question_wrong02">
+									<input type="radio" name="q1"  value="wrong">Connectors</input>
+                  </div>
+                  <div  class='box' id="question_wrong03">
+									  <input type="radio" name="q1"  value="wrong">Splices</input>
+                  </div>
+								</div>
+								
+								<br>
+								<li>Which of the following is not included in the optical fiber link measurement test?</li>
+								<div>
+                  <div class='box' id="question_right10">
+									<input type="radio" name="q2"  value="correct">Receiver sensitivity</input>
+                  </div>
+                  <div class='box' id="question_wrong11">
+									<input type="radio" name="q2"  value="wrong">Attenuation measurement</input>
+                  </div>
+                  <div class='box' id="question_wrong12">
+									<input type="radio" name="q2"  value="wrong">Dispersion measurement</input>
+                  </div>
+                  <div  class='box' id="question_wrong13">
+									  <input type="radio" name="q2"  value="wrong">Splice loss measurement</input>
+                  </div>
+								</div><br>
+
+
+								<li>In case of field measurements, the equipment must have ___________ power consumption keeping in mind the battery operation.</li>
+								<div>
+                   <div  class='box' id="question_wrong20">
+									<input type="radio" name="q3" value="wrong">Moderate</input>
+                  </div>
+                   <div  class='box' id="question_right21">
+									<input type="radio" name="q3" value="correct">Low</input>
+                  </div>
+                   <div  class='box' id="question_wrong22">
+									<input type="radio" name="q3" value="wrong">High</input>
+                  </div>
+                   <div  class='box' id="question_wrong23">
+									<input type="radio" name="q3" value="wrong">Maximum</input>
+                  </div>
+								</div><br>
+								
+								<li>Complicated and involved fiber connection arrangements should be _________ in case of field measurements.</li>
+								<div>
+                   <div  class='box' id="question_wrong30">
+									<input type="radio" name="q4" value="wrong">Provided</input>
+                   </div>
+                   <div  class='box' id="question_right31">
+									<input type="radio" name="q4" value="correct">Avoided</input>
+                   </div>
+                   <div  class='box' id="question_wrong32">
+									<input type="radio" name="q4" value="wrong">Maximized</input>
+                   </div>
+                   <div  class='box' id="question_wrong33">
+									<input type="radio" name="q4" value="wrong">Minimized</input>
+                  </div>
+								</div><br>
+								
+							
+								<li>Which of the following are not considered as environmental conditions required for field measurements?</li>
+								<div>
+                   <div  class='box' id="question_wrong40">
+									<input type="radio" name="q5" value="wrong">Pressure</input>
+                   </div>
+                   <div  class='box' id="question_wrong41">
+									<input type="radio" name="q5" value="wrong">Temperature</input>
+                   </div>
+                   <div  class='box' id="question_wrong42">
+									<input type="radio" name="q5" value="wrong">Humidity</input>
+                   </div>
+                   <div  class='box' id="question_right43">
+									<input type="radio" name="q5" value="correct">Power</input>
+                  </div>
+								</div>
+								
+							</ol>
+							<input type="button" value="Submit" onClick="checkAllQs()" style= "margin-top:0.5cm; margin-bottom:0.5cm; margin-left:1cm; margin-right:0.5cm"></input>
+							<input type="button" value="Reset" onClick="reset()" style= "margin-top: 0.5cm;  margin-bottom: 0.5cm; margin-left:0.5cm; margin-right:05cm "></input>
+        			<br>
+							<!--<textarea rows="10" cols="60" name="answerbox" style= "margin-top: 0.5cm;  margin-bottom: 0.5cm; margin-left:1cm; margin-right:1cm;" align="center">Answers will be shown here</textarea>-->
+						</form>
+                    <!--Theory of experiment -->
+                    </p>
+                </section>
+            <!-- /.content -->
+            </div>
+            <footer class="main-footer">
+                <h4 align="center">Lab contributed IITR<!-- Institute Name --> </h4>
+            </footer>
+        </div>
+        
+    </body>
+</html>
+
+<!-- ./wrapper -->
+<!-- jQuery 2.2.3 -->
+<script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<!-- Bootstrap 3.3.6 -->
+<script src="../../bootstrap/js/bootstrap.min.js"></script>
+<!-- Slimscroll -->
+<script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="../../plugins/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/app.min.js"></script>

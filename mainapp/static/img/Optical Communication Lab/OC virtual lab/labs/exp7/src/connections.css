@@ -1,0 +1,119 @@
+/* meter1 */
+#dragDropWindow1 {
+	position:absolute;
+	top:24.8em;
+	left:8.4em;
+}
+#dragDropWindow3 {
+	position:absolute;
+	top:24.8em;
+	left:7.6em;
+}
+
+/* meter1-connect-cricuit */
+#dragDropWindow2 {
+	position:absolute;
+	top:27.6em;
+	left:14em;
+}
+#dragDropWindow4 {
+	position:absolute;
+	top:33.5em;
+	left:14.25em;
+}
+
+/* meter2-connect-circuit */
+#dragDropWindow5 {
+	position:absolute;
+	top:33.5em;
+	left:28.7em;
+}
+#dragDropWindow7 {
+	position:absolute;
+	top:27.8em;
+	left:28.7em;
+}
+
+/*meter3-connect-circuit */
+#dragDropWindow11 {
+	position:absolute;
+	top:22.8em;
+	left:34.8em;
+}
+#dragDropWindow9 {
+	position:absolute;
+	top:22.9em;
+	left:39.56em;
+}
+
+/*meter2 */
+#dragDropWindow8 {
+	position:absolute;
+	top:17.9em;
+	left:23.4em;
+}
+#dragDropWindow6 {
+	position:absolute;
+	top:17.9em;
+	left:22.7em;
+}
+
+/*meter 3*/
+#dragDropWindow10 {
+	position:absolute;
+	top:17.9em;
+	left:37.4em;
+}
+#dragDropWindow12 {
+	position:absolute;
+	top:17.9em;
+	left:36.6em;
+}
+
+/* cylinder-connect-diode*/
+#dragDropWindow13 {
+	position:absolute;
+	top:28em;
+	left:44em;
+}
+#dragDropWindow15 {
+	position:absolute;
+	top:33.5em;
+	left:44.3em;
+}
+
+/*cylinder*/
+#dragDropWindow14 {
+	position:absolute;
+	top:33.2em;
+	right:32.4em;
+}
+#dragDropWindow16 {
+	position:absolute;
+	top:34.8em;
+	right:32.4em;
+}
+#dragDropWindow17 {
+	position:absolute;
+	top:17.5em;
+	right:32.5em;
+}
+
+/*laser*/
+#dragDropWindow18 {
+	position:absolute;
+	top:24.6em;
+	right:32.5em;
+}
+#dragDropWindow19 {
+	position:absolute;
+	top:10em;
+	right:32.3em;
+}
+
+/*power*/
+#dragDropWindow20 {
+	position:absolute;
+	top:17em;
+	right:18.2em;
+}

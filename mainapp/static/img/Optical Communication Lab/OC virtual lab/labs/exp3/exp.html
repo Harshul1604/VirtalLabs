@@ -1,0 +1,259 @@
+<html>
+    <head>
+        <title>Reading values</title>
+        <meta charset="windows-1252">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="./src/expstyle.css">      
+		<!---------MathJax------------------->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+        <!------------calculator----------------------------------------->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+		<!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Knob/1.2.13/jquery.knob.min.js"></script-->
+        <script src="./src/jquery.knob.min.js"></script>
+        <script src="./src/exp4knobs.js"></script>
+        <script src="./src/exp4axis.js"></script>
+        <script src="./src/sinewave.js"></script>
+        <script src="./src/exp4.js"></script>
+        <script src="./src/exp4both.js"></script>
+        <script src="./src/exp4gnd.js"></script>
+        <script src="./src/exp4peak.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    </head>
+    
+    <body bgcolor="aqua"> 
+        
+      <div id="se-pre-con"><div class="load">
+		<p>You can read the values of the experiment</p>
+		<img src="./images/load.gif"></img>
+		<p>Please wait...</p></div>
+	</div>
+         <div class="wholebody" >
+		 <p style="background-color: blue;margin-top:0em;color:white;font-size:30px;text-align:center">Intensity modulation of laser output through an optical fiber</p>
+             
+            <div id="description" >
+                <div class="dropdown">
+                    <p style="padding-right:350px;color:white"> INSTRUCTIONS</p>
+                    <div class="dropdown-content">
+                        <ol type="1">
+                            <li>Click on 'ON' button to start the experiment.</li>
+                            <li>Double click on 'Sine Wave' button to generate input waveform. </li>
+                            <li>Click on 'Oscilloscope' button to get the output waveform. </li>
+                            <li>Vary the Amplitude, Frequency, volt/div  using the controllers.</li> 
+                            <li>Click on 'Dual' button to observe both the waveforms.</li>
+                            <li>Channel 1 shows the input sine waveform, Channel 2 shows the output sine waveform. </li>
+                            <li>Click on 'Add' button to read input values into table</li>
+                            <li>Click on 'PLOT' button to plot the graph from table readings</li>
+                        </ol> 
+                    </div>
+                </div>
+            </div>
+          
+
+ <div id="grpwrap" >
+                
+                <div style="position:absolute; font-size:16px; top:-1px;left:0px;  height:50px;background-color:blue;  width:459px;font-weight: bold;"><p style="text-align:center;padding-right:370px;color:white"> <b> OSCILLOSCOPE</b></p>
+                </div>  
+               
+                    <div class="canvas2d-view" id="canvas2d-view" >
+
+                        <center><canvas id="mycanvas" width="430" height="350" style="border:1px solid black;top:40px;">
+                            </canvas>  </center>
+                    </div>
+                    <!--  <output id="out"></output>-->
+                    <div class="lowerleftsection">
+                         
+                        <input type="button" id="chhn1" value="Channel 1" onclick="chnlo()" disabled="true" />
+                        <input type="button" id="chhn2" value="Channel 2" onclick="chnlt()" disabled="true" />
+                        <input type="button" id="grnd" value="Ground" onclick="grnds()" disabled="true"/>
+                        <input type="button" id="dual" value="Dual" onclick="bthd()"  disabled="true"/>
+						<input type="button" id="add" value="Add" onclick="insert()"  disabled="true"/>
+                        <input type="button" id="onff" onclick="mainswt()" value="Power:Off" style="
+    position:relative;
+    float:right;
+    right:20px;
+    top: 68px;
+	color:white;
+	background-color:red;
+    cursor:pointer;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 2px #999;
+    " />
+                        <div id="knob-container-fng">
+                            <!------frequency-knob-container------------>
+                            <div id="frequency-knob-container-fng">
+                                <input type="text" id="fq-knob-fng"  value="1000" readOnly=false oninput="freqfng()">
+                                <label>Frequency(Hz)</label>
+                            </div>
+
+                            <!-----------amplitude-knob-container---------------->
+                            <div id="amplitude-knob-container-fng">
+                                <input type="text" id="amp-knob-fng" readOnly=false  value="1" oninput="ampfng()">
+                                <label>Amplitude(Volt)</label>
+                            </div>
+
+                        </div>  <!--------------- end of .knob-container-fng----------------------->
+
+                    </div><!--------------- end of .lowerleftsection----------------------->
+        
+    </div><!--------------- end of .graphSection----------------------->
+            
+                    <div id="circuitsection">
+                        <div style="position:absolute; font-size:16px; top:0px;right:-1px;  height:50px;background-color:blue;  width:651px;font-weight: bold;"><p style="padding-right:390px;color:white"> <b> CIRCUIT </b></p></div>
+
+                <div id="circuit">
+                        <p>
+                       <img src ="./images/setup.png" style="width:607px;height:265px;position:absolute;right:27px" />   
+
+                        <input type="button" id="sinecrv" value="SineWave" disabled onclick="chnlo()" style="position:absolute;right:557px;top:77px;cursor:pointer;text-align: center;border-radius: 5px;box-shadow: 0 2px #999;" />
+                        <input type="button" id="rectifiedop" value="Oscilloscope" onclick="drawhlfrectifier()" disabled=true style="position:absolute;right:30px;top:80px;cursor:pointer;text-align: center;border-radius: 5px;box-shadow: 0 2px #999;" />
+                        
+                        
+
+                    </p>
+                    </div><!--------------- end of .circuit----------------------->
+                    </div> <!--------------- end of .circuitSection----------------------->
+ <div id="controller" >
+      <div id="cntrlr" style="position:absolute; background-color:blue;   height:53px; top:-1px; right:-1px; width:460px;font-size: 16px;font-weight: bold;"><p style="text-align:center;padding-right:370px;color:white"><b>CONTROLS</b></p></div>
+               
+                    <div class="middlerightmiddle">
+                        <div id="knob-container-amp">
+                            <!-----------amplitude-knob-container1(volt/div)---------------->
+                           
+                            <div id="amplitude-knob-container1">
+                                <input type="text" id="amp-knob1" value="1" readOnly=false oninput="amp1pdiv()">
+                                <label>Volt(V)/div</label><br>
+                                
+                            </div>
+                             
+                            <!-----------amplitude-knob-container2(volt/div)-------------->
+                            <div id="amplitude-knob-container2">
+                                <input type="text" id="amp-knob2"  value="1" readOnly=false oninput="amp2pdiv()" >
+                                <label>Volt(V)/div</label>
+                            </div>
+                        </div><!--------------- end of .knob-container-amp----------------------->
+
+                        <input type="range" orient="vertical" id="positiony1" min="-2" max="2" value="0" oninput="posiy1chnge()"  style="cursor:pointer;">  <label id="positnlabely1">Position-Y</label><label id="positnlabelch1">Channel 1</label>
+                        <input type="range" orient="vertical" id="positiony2" min="-2" max="2"  value="0" oninput="posiy2chnge()" style="cursor:pointer;">  <label id="positnlabely2">Position-Y</label><label id="positnlabelch2">Channel 2</label>
+                        <div class="middlerightsectiondivide"></div>
+
+                    </div> <!--------------- end of .middlerightmiddle----------------------->
+                   <div class="middlerightupper">
+                        <input  type="range"  id="positionx" min="-360" max="360" step="90"  value="0" oninput="posix2chnge()"  style="cursor:pointer;">
+                        <label id="positnlabelx">Position-X</label>
+
+                        <!-- -----knob---------- -->
+                        <div id="knob-container">
+                            <!------frequency-knob-container(time(ms)/div)------------>
+                            <div id="frequency-knob-container">
+                                <input type="text" id="fq-knob"  value="0.1"  readOnly=false oninput="timepdiv()">
+                                <label>Time(ms)/div</label>
+                            </div>
+                        </div><!--------------- end of .knob-container----------------------->
+
+                    </div> <!--------------- end of .middlerightupper--------------------->
+                </div>  <!--------------- end of .controllSection----------------------->
+                <!--------------- end of .calcln----------------------->
+				<div class="calc">
+			<table cellspacing="0" cellpadding="10" border="2 solid black" id="table">
+				<tr style="color:white;background-color:blue;height:40px"><th colspan=6>EXPERIMENTAL READINGS</th></tr>
+				<tr bgcolor="#ffffff" class="font">
+					<th align=center>Sl.No</th>
+					<th align=center>V<sub>in</sub> (V)</th>
+					<th align=center>V<sub>o</sub> (V)</th>
+					<th align=center>Gain (dB)</th>
+				</tr>
+			</table>
+			</div>
+			<div class="graph">
+				<button class="button" onclick="plot()">PLOT</button><br/>
+				<table border="2 solid black" id="graph">
+					<tr  bgcolor="#9c9c77"><td align="center" class="font">Graph</td></tr>
+					<tr><td bgcolor='#ffffff'><canvas id="canvas" width=400 height=300></canvas></td></tr>
+				</table>
+		</div>
+		<div style="bottom: 4em;right: 7em;position: absolute;">
+			<button class="button" id="button1" onclick="printf()">Export Data</button><br/>
+		</div>
+        </div><!--------------- end of .wholebody----------------------->
+       <div style="position:absolute;top:68.3em;left:45em;">Lab contributed by IITR</div>
+       <script>
+		var t=0;
+           $('canvas').data('readonly', false);
+		   $(window).load(function() {
+			// Animate loader off screen
+				$("#se-pre-con").animate({
+					top: -900
+				}, 4000);
+				t=1;
+			});
+			var i=2;
+			var count=1;
+			var l1=[];
+			var l2=[];
+			function plot() {
+			var bttn = document.getElementById('onff').value;
+			if (bttn == "Power:Off") {alert("Could not plot if power is off\nTo add please turn on the system");}
+				else{
+				var ctx=document.getElementById("canvas").getContext('2d');
+				var len1=l1.length;
+				
+				for(var i=0;i<len1;i++) {
+					for(var j=i+1;j<len1;j++) {
+						if(parseFloat(l1[i])>parseFloat(l1[j])) {
+							var temp=l1[i];
+							l1[i]=l1[j];
+							l1[j]=temp;
+							temp=l2[i];
+							l2[i]=l2[j];
+							l2[j]=temp;
+						}
+					}
+				}
+				var chart=new Chart(ctx,{
+								type:'line',
+								data: {
+									labels:l1,
+									datasets:[{
+										label:"Input Voltage vs Output Voltage",
+										borderColor:'#000000',
+										data:l1,
+									}]
+								}
+							});
+			}}
+			function insert() {
+				var x=parseFloat(document.getElementById("amp-knob-fng").value).toFixed(2);
+				var tab=document.getElementById("table");
+					if(count>8) stop();
+					else {
+						var row=tab.insertRow(i);
+						row.id=i++;
+						row.setAttribute("bgcolor","#ffffff");
+						row.setAttribute("align","center");
+						var cell1=row.insertCell(0);
+						var cell2=row.insertCell(1);
+						var cell3=row.insertCell(2);
+						var cell4=row.insertCell(3);
+						cell1.innerHTML=count++;
+						cell2.innerHTML=x;
+						var y=parseFloat(x)+parseFloat(x*0.01);
+						cell3.innerHTML=x;
+						cell4.innerHTML=(x/x);
+						l1.push(x);
+						l2.push(x);
+					}	
+			}
+			function printf() {
+				if(t) document.getElementById("se-pre-con").remove();
+				t=0;
+				window.print();
+			}
+			
+			
+		</script>
+         
+    </body>
+</html>

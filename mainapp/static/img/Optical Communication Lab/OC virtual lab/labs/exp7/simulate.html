@@ -1,0 +1,145 @@
+<html>
+<head>
+	<link rel="stylesheet" href="./src/simstyle.css">
+	<link rel="stylesheet" href="./src/connections.css">
+</head>
+<body bgcolor="aqua" style="width:95em">
+	<div class="exp">
+		<p style="background-color: blue;color:white;font-size:30px;text-align:center">Characteristics of Avalanche Photo Diode(APD)</p>
+		<div class="image">
+			<img src="./images/meter.png" style="position: absolute;width: 10em;height: 7em;left: 3em;top: 19em;">
+			<img src="./images/meter2.png" style="position: absolute;width: 10em;height: 7em;left: 18em;top: 12em;">
+			<img src="./images/ameter.png" style="position: absolute;width: 14em;left: 30.2em;height: 15em;top: 8.5em;">
+			<img src="./images/circuit.png" style="position: absolute;width: 32em;height: 19em;top: 23em;left: 13em;">
+			<img src="./images/laser.png" style="position: absolute;width: 8em;height: 4em;transform: rotate(-90deg);top: 13.4em;right: 27.9em;">
+			<img src="./images/diode.png" style="position: absolute;width: 12em;top: 29em;height: 4em;transform: rotate(-89deg);right: 25.5em;">
+			<img src="./images/pmeter.png" style="position:absolute;top:20em;right: 10em;width: 17em;height: 10em;transform:rotate(89deg);">
+		</div>
+		
+		<div style="position: absolute;
+					top: 13em;
+					font-weight: bold;
+					font-size: larger;
+					left: 3em;">
+					<p>Input DC Source</p>
+		</div>
+		<div style="position: absolute;
+					top: 7em;
+					font-weight: bold;
+					font-size: larger;
+					left: 17em;">
+					<p>Voltmeter</p>
+		</div>
+		<div style="position: absolute;
+					top: 7em;
+					font-weight: bold;
+					font-size: larger;
+					left: 29em;">
+					<p>Ammeter</p>
+		</div>
+		<div style="position: absolute;
+					top: 10em;
+					font-weight: bold;
+					font-size: larger;
+					right: 23.5em;">
+					<p>LED</p>
+		</div>
+		<div style="position: absolute;
+					top: 25em;
+					font-weight: bold;
+					font-size: larger;
+					right: 23.5em;">
+					<p>APD</p>
+		</div>
+		<div style="position: absolute;
+					top: 27em;
+					font-weight: bold;
+					font-size: larger;
+					right: 13em;">
+					<p>Power meter</p>
+		</div>
+		<div>
+			<p id="dragDropWindow1" class="jtk-endpoint-anchor jtk-managed"></p>
+			<p id="dragDropWindow2" class="jtk-endpoint-anchor jtk-managed"></p>
+			<p id="dragDropWindow3" class="jtk-endpoint-anchor jtk-managed"></p>
+			<p id="dragDropWindow4" class="jtk-endpoint-anchor jtk-managed"></p>
+			<p id="dragDropWindow5" class="jtk-endpoint-anchor jtk-managed"></p>
+			<p id="dragDropWindow6" class="jtk-endpoint-anchor jtk-managed"></p>
+			<p id="dragDropWindow7" class="jtk-endpoint-anchor jtk-managed"></p>
+			<p id="dragDropWindow8" class="jtk-endpoint-anchor jtk-managed"></p>
+			<p id="dragDropWindow9" class="jtk-endpoint-anchor jtk-managed"></p>
+			<p id="dragDropWindow10" class="jtk-endpoint-anchor jtk-managed"></p>
+			<p id="dragDropWindow11" class="jtk-endpoint-anchor jtk-managed"></p>
+			<p id="dragDropWindow12" class="jtk-endpoint-anchor jtk-managed"></p>
+			<p id="dragDropWindow13" class="jtk-endpoint-anchor jtk-managed"></p>
+			<p id="dragDropWindow14" class="jtk-endpoint-anchor jtk-managed"></p>
+			<p id="dragDropWindow15" class="jtk-endpoint-anchor jtk-managed"></p>
+			<p id="dragDropWindow16" class="jtk-endpoint-anchor jtk-managed"></p>
+			<p id="dragDropWindow17" class="jtk-endpoint-anchor jtk-managed"></p>
+			<p id="dragDropWindow18" class="jtk-endpoint-anchor jtk-managed"></p>
+			<p id="dragDropWindow19" class="jtk-endpoint-anchor jtk-managed"></p>
+			<p id="dragDropWindow20" class="jtk-endpoint-anchor jtk-managed"></p>
+
+		</div>
+		<div class="top">
+			<form action="exp.html" method="post" style="width:100%;text-align:right">
+				<div class="button"><input class="b1" type="button" id="check"  value="CHECK" ></input></div>
+				<div class="button"><input type="submit" id="start"  style="cursor:not-allowed" value="START" disabled></input></div>
+				<div class="button"><input class="b2" type="button" onclick="location.reload()" value="RESET"></input></div>
+			</form>
+		</div>
+	</div>
+	<div style="position:absolute;top:41em;left:45em;">Lab contributed by IITR</div>
+	<div class="instruct">
+			<a id="myBtn" href="#"><img src="./images/help.png" width=30 height=30 alt="Help"></img></a>
+				<div id="myModal" class="modal">
+					<div class="modal-content">
+						<div class="modal-header">
+							<span class="close">&times;</span>
+							<h2>Instructions</h2>
+						</div>
+						<div class="modal-body">
+							<center><img src="./images/b.png" alt="setup" width=700em height=350em></img></center><br/>
+							<br/><p>
+								<ol type="1" style="font-size:17px;font-family:Courier;">
+									<li>Connect the components as mentioned below:<br>
+										(1-3)(2-4)(5-7)(6-8)(9-12)(10-11)(13-15)(14-16)(17-18)(19-20)
+										</li>
+									<li>Click on <img src="./images/check.png" width=50 height=20></img> button to check the connections</li><li>If connected wrong, click on the wrong connection and drag the connection and connect it in right position.<br>Else if connections are right please click <img src="./images/start.png" width=50 height=20></img> button to read the values for experiment.</li></ol></p>
+							<label>Note:</label><b>Donot start before properly connecting the wires.</b>
+						</div>
+						<div class="modal-footer">
+							<br/>
+						</div>
+				</div>
+	</div></div>
+	<script>
+		var modal = document.getElementById("myModal");
+
+		// Get the button that opens the modal
+		var btn = document.getElementById("myBtn");
+
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
+
+		// When the user clicks the button, open the modal 
+		btn.onclick = function() {
+			modal.style.display = "block";
+		}
+
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+			modal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+			if (event.target == modal) {
+					modal.style.display = "none";
+			}
+		}
+	</script>
+	<script src="./src/jsplumb.js"></script>
+	<script src="./src/demo.js"></script>
+</body>
+</html>

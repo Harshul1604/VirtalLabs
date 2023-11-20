@@ -1,0 +1,90 @@
+<html>
+<head>
+	<link rel="stylesheet" href="./src/simstyle.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="./src/draganddrop.js"></script>
+</head>
+<body bgcolor="aqua" style="width:95em">
+	<div class="exp">
+		<img class="image" src="./images/table.jpg"></img>
+		<p style="background-color: blue;color:white;font-size:30px;text-align:center">Measurement of Numerical Aperture</p>
+		<!-- Division for apparatus -->
+		<div class="source" id="s"><p style="font-size:20px;">APPARATUS:&emsp;</p>
+			<div class="table" id="14"><img style="padding-top:5px;" id="4"  draggable="true" ondragstart="dragStart(event)" src="./images/emitter.png" alt="emitter" height=60 width=50></img><br/>Emitter</div>
+			<div class="table" id="11"><img style="padding-top:5px;" id="1" draggable="true" ondragstart="return dragStart(event)" src="./images/stand.png" alt="left stand" height=60 width=30></img></br>Left stand</div>
+			<div class="table" id="10"><img style="padding-top:5px;" id="0" draggable="true" ondragstart="return dragStart(event)" src="./images/screen.png" alt="screen" height=60 width=60></img>Screen</div>
+			<div class="table" id="13"><img style="padding-top:5px;" id="3" draggable="true" ondragstart="return dragStart(event)" src="./images/stand.png" alt="right stand" height=60 width=30></img></br>Right stand</div>
+			<div class="table" id="12"><img style="cursor:not-allowed" id="2" draggable="false" ondragstart="return dragStart(event)" alt="fiber" src="./images/fiber.png" height=20px width=95px></img>Fiber</div>
+		</div><br/>
+		
+		<!-- Division for buttons-->
+		
+		<div class="top">
+			<form action="./exp.html" method="post" style="width:100%;text-align:right">
+				<div class="button"><input type="submit" id="st" style="cursor:not-allowed;" value="START" disabled></input></div>
+				<div class="button"><input class="b2" type="button" onclick="location.reload()" value="RESET"></input></div>
+			</form>
+		</div>
+		
+		<!-- Division for elements on table -->
+		<div class="dest">
+			<div class="table" style="text-align:right;" id="5" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+			<div class="table" style="text-align:right;" id="6" ondrop="drop(event)" ondragover="allowDrop(event)">&emsp;</div>
+			<div class="table" id="7" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+			<div class="table" id="8" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+			<div class="table" id="9" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+		</div><br/><br/>
+	</div>
+	<div class="instruct">
+			<a id="myBtn" href="#"><img src="./images/help.png" width=30 height=30 alt="Help"></img></a>
+				<div id="myModal" class="modal">
+					<div class="modal-content">
+						<div class="modal-header">
+							<span class="close">&times;</span>
+							<h2>Instructions</h2>
+						</div>
+						<div class="modal-body">
+							<center><img src="./images/Setup.png" width=430 height=130></img></center><br/>
+							<br/><center>Arrange the apparatus as shown above.</center><br/><left style="font-size:20px">Instructions:</left>
+							<ol type='A' style="font-size:17px;font-family:Courier;">
+								<li>Only drag and drop objects displaying this(<img src="./images/move.png" width=20 height=20></img>) cursor on the screen.</li>
+								<li>Donot drag the object displaying this cursor(<img src="./images/notallowed.png" width=15 height=15></img>).It will be unlocked later.</li>
+								<li>To reset screen use <img src="./images/reset.png" width=50 height=20></img> button.</li>
+								<li>After completely arranging the apparatus click <img src="./images/start.png" width=50 height=20></img> button to start the experiment.</li>
+							</ol>
+							<label>Note:</label><b>Donot start before properly arranging the apparatus onto the table.</b>
+						</div>
+						<div class="modal-footer">
+							<br/>
+						</div>
+				</div>
+	</div>
+	<div style="position:absolute;top:43em;left:45em;">Lab contributed by IITR</div>
+	<script>
+		var modal = document.getElementById("myModal");
+
+		// Get the button that opens the modal
+		var btn = document.getElementById("myBtn");
+
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
+
+		// When the user clicks the button, open the modal 
+		btn.onclick = function() {
+			modal.style.display = "block";
+		}
+
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+			modal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+			if (event.target == modal) {
+					modal.style.display = "none";
+			}
+		}
+	</script>
+</body>
+</html>

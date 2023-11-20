@@ -1,0 +1,88 @@
+<html>
+<head>
+	<link rel="stylesheet" href="./src/simstyle.css">
+	<script src="./src/draganddrop.js"></script>
+</head>
+<body bgcolor="aqua" style="width:95em">
+	<div class="exp">
+		<img class="image" src="./images/table.jpg"></img>
+		<p style="background-color: blue;color:white;font-size:30px;text-align:center">Optical Power Measurements</p>
+		<!-- Division for apparatus -->
+		<div class="source" id="s"><p style="font-size:20px;">APPARATUS:&emsp;</p>
+			<div class="table" id="10"><img style="padding-top:2em" id="0"  draggable="true" ondragstart="return dragStart(event)" src="./images/laser.png" alt="Laser" height=40 width=100></img><br/>He-Ne Laser</div>
+			<div class="table" id="11"><img style="padding-top:0.4em;cursor:not-allowed;" id="1" draggable="false" ondragstart="return dragStart(event)" src="./images/glass.png" alt="Glass" height=80 width=50></img></br>Glass screen</div>
+			<div class="table" id="12"><img style="padding-top:1.7em" id="2" draggable="true" ondragstart="return dragStart(event)" src="./images/meter.png" alt="Power meter" height=60 width=120></img>&nbsp;&nbsp;Power meter</div>
+			
+		</div><br/>
+		
+		<!-- Division for buttons-->
+		
+		<div class="top">
+			<form action="./exp.html" method="post" style="width:100%;text-align:right">
+				<div class="button"><input type="submit" id="st" style="cursor:not-allowed;" value="START" disabled></input></div>
+				<div class="button"><input class="b2" type="button" onclick="location.reload()" value="RESET"></input></div>
+			</form>
+		</div>
+		
+		<!-- Division for elements on table -->
+		<div class="dest">
+			<div class="table0"  id="5" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+			<div class="table1"  id="6" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+			<div class="table2" id="7" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+		</div><br/><br/>
+		
+		
+	</div>
+	<div class="instruct">
+			<a id="myBtn" href="#"><img src="./images/help.png" width=30 height=30 alt="Help"></img></a>
+				<div id="myModal" class="modal">
+					<div class="modal-content">
+						<div class="modal-header">
+							<span class="close">&times;</span>
+							<h2>Instructions</h2>
+						</div>
+						<div class="modal-body">
+							<center><img src="./images/setup.png" width=430 height=200></img></center><br/>
+							<br/><center>Arrange the apparatus as shown above.</center><br/><left style="font-size:20px">Instructions:</left>
+							<ol type='A' style="font-size:17px;font-family:Courier;">
+								<li>Only drag and drop objects displaying this(<img src="./images/move.png" width=20 height=20></img>) cursor on the screen.</li>
+								<li>Donot drag the object displaying this cursor(<img src="./images/notallowed.png" width=15 height=15></img>).It will be unlocked later.</li>
+								<li>To reset screen use <img src="./images/reset.png" width=50 height=20></img> button.</li>
+								<li>After completely arranging the apparatus click <img src="./images/start.png" width=50 height=20></img> button to start the experiment.</li>
+							</ol>
+							<label>Note:</label><b>Donot start before properly arranging the apparatus onto the table.</b>
+						</div>
+						<div class="modal-footer">
+							<br/>
+						</div>
+				</div>
+	</div>
+	<div style="position:absolute;top:42em;left:45em;">Lab contributed by IITR</div>
+	<script>
+		var modal = document.getElementById("myModal");
+
+		// Get the button that opens the modal
+		var btn = document.getElementById("myBtn");
+
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
+
+		// When the user clicks the button, open the modal 
+		btn.onclick = function() {
+			modal.style.display = "block";
+		}
+
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+			modal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+			if (event.target == modal) {
+					modal.style.display = "none";
+			}
+		}
+	</script>
+</body>
+</html>

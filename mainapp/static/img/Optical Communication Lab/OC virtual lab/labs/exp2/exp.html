@@ -1,0 +1,281 @@
+<html>
+<head>
+	<title>Reading values</title>
+	<link rel="stylesheet" href="./src/expstyle.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+</head>
+<body bgcolor="aqua" style="width:95em">
+	<div id="se-pre-con"><div class="load">
+		<p>You can read the values of the experiment</p>
+		<img src="./images/load.gif"></img>
+		<p>Please wait...</p></div>
+		<script>
+		var t=0;
+			$(window).load(function() {
+			// Animate loader off screen
+			
+				$("#se-pre-con").animate({
+					top: "-200%"
+				}, 4000);t=1;
+			});
+		</script>
+	</div>
+	<div class="exp">
+		<p style="background-color: blue;color:white;font-size:30px;text-align:center">Characterization of Laser Diode</p>
+		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+		<script>
+			var i=2;
+			var count=1;
+			var l1=[0,];
+			var l2=[0,];
+			var x,y,f=0,temp=1;
+			function plot() {
+				var ctx=document.getElementById("canvas").getContext('2d');
+				var chart=new Chart(ctx,{
+								type:'line',
+								data: {
+									labels:l1,
+									datasets:[{
+										label:"Power vs Current",
+										borderColor:'#000000',
+										data:l2,
+									}]
+								}
+							});
+			}
+			function insert() {
+				
+				if (f==1) {
+				var tab=document.getElementById("table");
+					if(count>10) stop();
+					else {
+						var l=document.getElementById("cable").value;
+						var row=tab.insertRow(i);
+						row.id=i++;
+						row.setAttribute("bgcolor","#ffffff");
+						row.setAttribute("align","center");
+						var cell1=row.insertCell(0);
+						var cell2=row.insertCell(1);
+						var cell3=row.insertCell(2);
+						var cell4=row.insertCell(3);
+						var cell5=row.insertCell(4);					
+						var cell6=row.insertCell(5);
+							
+						if(l=='8'){
+							y=(y-0.02).toFixed(2);
+						}
+						cell1.innerHTML=count++;
+						cell2.innerHTML=x;
+						cell3.innerHTML=(x*10);
+						var p=(y/10).toFixed(3);
+						cell4.innerHTML=y;
+						cell5.innerHTML=p;
+						cell6.innerHTML=Number(p)+30;
+						l1.push((x/100).toFixed(3));
+						l2.push(Number(p)+30);
+					}
+				}
+				else{
+					alert("Could not add if power is off\nTo add please turn on the system");
+					document.getElementById("stop").value=0;
+					document.getElementById("x").value="";
+					document.getElementById("y").value="";
+				}
+			}
+			function updateDisplay() {
+					f=f+temp;
+					temp=f-temp;
+					f=f-temp;
+					display();
+			}
+			function display() {
+					if(f==0) {
+						document.getElementById("stop").value=0;
+						document.getElementById("x").value="";
+						document.getElementById("y").value="";
+						//document.getElementById("stop").disabled="true";
+						if(i>2) for(var q=2;q<i;q++) document.getElementById(q).remove();
+						l1=[0,];l2=[0,];i=2;count=1;
+					}
+					else if(f==1){
+						//document.getElementById("stop").disabled="true";
+						updateTextBox(document.getElementById("stop").value);
+						//k=1;
+					}
+			}
+			function stop() {
+					alert("You cannot read more values");
+					//document.getElementById("stop").disabled="true";
+			}
+			function updateTextBox(val) {
+			 if(f==1){
+				x=parseFloat(val);
+				if(x>=0 && x<0.2) 	   {x=0;y=-0.66;}
+						else if (x>=0.2 && x<0.4) { x=0.2;y=-0.45;}
+						else if (x>=0.4 && x<0.5) { x=0.4;y=-0.42;}
+						else if (x>=0.5 && x<1.0) { x=0.5;y=-0.41;}
+						else if (x>=1.0 && x<1.5) { x=1.0;y=-0.35;}
+						else if (x>=1.5 && x<2.0) { x=1.5;y=-0.32;}
+						else if (x>=2.0 && x<2.5) { x=2.0;y=-0.26;}
+						else if (x>=2.5 && x<3.0) { x=2.5;y=-0.14;}
+						else if (x>=3.0 && x<3.5) { x=3.0;y=-0.11;}
+						else if (x>=3.5 && x<4.0) { x=3.5;y=-0.10;}
+						else if (x>= 4.0)  		  { x=4.0;y=-0.10;}
+				document.getElementById("x").value=x+"mV";
+				document.getElementById("y").value=y+"mV";
+				//insert();
+			  }
+			  else alert("Please turn on to read values");
+			}
+			function updateExp() {
+				document.getElementById("stop").value=0;
+				if(i>2) for(var q=2;q<i;q++) document.getElementById(q).remove();
+				l1=[0,];l2=[0,];i=2;count=1;
+				updateTextBox(document.getElementById("stop").value);
+			}
+		</script>
+		
+			
+			<div class="calc">
+			<table cellspacing="0" cellpadding="3" border="2 solid black" id="table">
+				<tr style="background-color:blue;text-align:center;font-size:20px;color:white;">
+					<th colspan=6>EXPERIMENTAL READINGS</th>
+				</tr>
+				<tr bgcolor="#ffffff" class="font">
+					<th>Sl.No</th>
+					<th>V<sub>01</sub><br/>(V<sub>01</sub> in mV)</th>
+					<th>I<sub>f</sub>=V<sub>01</sub>/100<br/>(I<sub>f</sub> in mA)</th>
+					<th>V<sub>02</sub><br/>(V<sub>02</sub> in mV)</th>
+					<th align=center>P<sub>0</sub>=V<sub>02</sub>/10<br/>(P<sub>0</sub> in dB)</th>
+					<th align=center>P<sub>dBm</sub>+30dB</th>
+				</tr>
+			</table>
+			</div>
+	
+		<div style="position:absolute;top:6em;right:10em;">
+		<b>Power On/Off</b>&ensp;&ensp;&ensp;
+			<input type="checkbox" id="switch" class="checkbox" onchange="updateDisplay()">
+			<label for="switch" class="toggle">
+			</label>
+		</div>
+		
+		<div class="circuit"> 			
+		<img style="margin-left:40px" src="./images/setup.png" height=320 width=670></img> 
+		</div>
+		<div style="position: absolute;top:9em;right:9em;">
+		<b>Select cable wavelength:</b>&nbsp;&nbsp;
+		<select id="cable" onchange="updateExp()">
+        <option value=6 selected>650nm</option>
+		<option value=8>850nm</option>
+		</select>
+		</div>
+		<table cellpadding=5 >
+				<tr style="position: absolute;top:11em;right:7em;">
+					<th>Voltage(in mV)</th>
+					<td><input type="range" min="0" max="4.5" step="0.01"
+								value="0" onchange="insert()" oninput="updateTextBox(this.value)" id="stop" ></input></td>
+				</tr>
+				<tr><td style="position: absolute;top:141px;left:56px;">
+							<input type="text" id="x" style="width:61px;height:34px;font-size:15px;border-top-style:hidden;border-right-style: hidden;border-left-style: hidden;
+									border-bottom-style:hidden; background-color:#D3D3D3;color:black;"></input>
+					</td>
+				<tr>
+				<tr><td style="position: absolute;top:217px;left:614px;">
+							<input type="text" id="y" value="" style="width:61px;height:33px;font-size:15px;border-top-style:hidden;border-right-style: hidden;border-left-style: hidden;
+									border-bottom-style:hidden; background-color:#DCDCDC;color:black;" />
+					</td>
+				</tr>
+			</table>
+		<div class="graph">
+				<button class="button" onclick="plot()">PLOT</button><br/>
+				<table border="2 solid black" id="graph">
+					<tr  bgcolor="#9c9c77"><td align="center" class="font">Graph</td></tr>
+					<tr><td bgcolor='#ffffff'><canvas id="canvas" width=300 height=200></canvas></td></tr>
+				</table>
+		</div>
+		<div><button class="button" id="button1" onclick="printf()">Export Data</button><br/></div>
+	</div>
+	<div style="position:absolute;top:43em;left:45em;">Lab contributed by IITR</div>
+	<div class="instruct">
+			<a id="myBtn" href="#"><img src="./images/help.png" width=30 height=30 alt="Help"></img></a>
+				<div id="myModal" class="modal">
+					<div class="modal-content">
+						<div class="modal-header">
+							<span class="close">&times;</span>
+							<h2>Instructions</h2>
+						</div>
+						<div class="modal-body">
+							<br/><left style="font-size:20px">Instructions:</left>
+							<ol type="1">
+								<li>Toggle On/Off button to control the power to the system.</li>
+								<li>Select the cable length using the select option</li>
+								<li>The default is set to 650nm</li>
+								<li>After selecting cable length you can read values into table using the range slider with label "Voltage"</li>
+								<li>Click on "PLOT" button to plot the graph</li>
+							</ol>
+							<left style="font-size:20px">Formula:</left>
+							<ol type="1">
+								<li>I<sub>f</sub> = V<sub>o</sub>/100 Am</li>
+								<li>P<sub>o</sub> = (reading)/10 dBm</li>
+							</ol>
+							<br/><br/><label>Note:</label>
+							<b>Donot move the range slider of Voltage without turning on the power</b><br/>&nbsp;&nbsp;&nbsp;&nbsp;
+							<b>Donot click "PLOT" without turning the system. Also, donot click "PLOT" button without adding values into table</b>
+						</div>
+						<div class="modal-footer">
+							<br/>
+						</div>
+					</div>
+				</div>
+	</div>
+	<script>
+		var modal = document.getElementById("myModal");
+
+		// Get the button that opens the modal
+		var btn = document.getElementById("myBtn");
+
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
+
+		// When the user clicks the button, open the modal 
+		btn.onclick = function() {
+			modal.style.display = "block";
+		}
+
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+			modal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+			if (event.target == modal) {
+					modal.style.display = "none";
+			}
+		}
+		function printf() {
+			if(t) document.getElementById("se-pre-con").remove();
+			t=0;
+			window.print();
+		}
+		/*document.querySelector('#button1').addEventListener('click', function() {
+        html2canvas(document.querySelector('.calc'), {
+            onrendered: function(canvas) {
+                // document.body.appendChild(canvas);
+              return Canvas2Image.saveAsPNG(canvas);
+            }
+		});
+			html2canvas(document.querySelector('#graph'), {
+            onrendered: function(canvas) {
+                // document.body.appendChild(canvas);
+              return Canvas2Image.saveAsPNG(canvas);
+            }
+		});
+    });*/
+	</script>
+	
+</body>
+</html>

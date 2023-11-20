@@ -1,0 +1,412 @@
+<html>
+<head>
+	<title>Reading values</title>
+	<link rel="stylesheet" href="./src/expstyle.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+</head>
+<body bgcolor="aqua" style="width:95em">
+	<div id="se-pre-con"><div class="load">
+		<p>You can read the values of the experiment</p>
+		<img src="./images/load.gif"></img>
+		<p>Please wait...</p></div>
+	</div>
+	<div class="exp">
+		<div style="background-color: blue;color:white;font-size:30px;text-align:center;">Characteristics of Avalanche Photo Diode(APD)</div>
+		<div style="position:absolute;top:2.5em;left:0em;"><img style="width:50em;height:22em" src="./images/setup.png"></img></div>
+		<div style="position:absolute;top:6em;right:10em;">
+		<b>Power On/Off</b>&ensp;&ensp;&ensp;
+			<input type="checkbox" id="switch" class="checkbox" onchange="updateDisplay()">
+			<label for="switch" class="toggle">
+			</label>
+		</div>
+		<div style="position:absolute;top:10em;right:7em;">
+			Select power(in dBm):</b>&nbsp;&nbsp;&nbsp;
+			<select id="freq" oninput="updatePowerMeter(this.value)">
+				<option value="-18">-18dBm</option>
+				<option value="-15">-15dBm</option>
+			</select><br/><br/>
+			<b>Input Voltage(V):</b>
+			<input type="range" min="-500" max="-50" step="50" value="-500" id="volt" oninput="updateTextBox(this.value)" onchange="insert()" />
+		</div>
+		<input type="text" id="x" style="
+											width: 6em;
+											height: 2.8em;
+											left:1.4em;
+											top: 10.75em;
+											font-size:15px;
+											border-top-style:hidden;
+											border-right-style: hidden;
+											position:absolute;
+											border-left-style: hidden;
+											border-bottom-style:hidden;
+											background-color:#cdcccc;
+											color:black;
+											">
+		<input type="text" id="y" style="
+											width: 3.4em;
+											height: 2.7em;
+											left: 47.55em;
+											top: 11.3em;
+											transform: rotate(1.5deg);
+											font-size:15px;
+											border-top-style:hidden;
+											border-right-style: hidden;
+											position:absolute;
+											border-left-style: hidden;
+											border-bottom-style:hidden;
+											background-color:#cdcccc;
+											color:black;
+											">
+		<input type="text" id="z" style="
+											width: 6em;
+											height: 2.65em;
+											left: 12.6em;
+											top: 6em;
+											font-size:15px;
+											border-top-style:hidden;
+											border-right-style: hidden;
+											position:absolute;
+											border-left-style: hidden;
+											border-bottom-style:hidden;
+											background-color:#cdcccc;
+											color:black;
+											">
+		<input type="text" id="am" style="
+											width: 6em;
+											height: 2.79em;
+											left: 23.1em;
+											top: 5.95em;
+											font-size:15px;
+											border-top-style:hidden;
+											border-right-style: hidden;
+											position:absolute;
+											border-left-style: hidden;
+											border-bottom-style:hidden;
+											background-color:#cdcccc;
+											color:black;
+											">
+		<div class="calc">
+			<!--<table style="position:absolute;top:4em;" cellspacing="0" border="2 solid black" id="table">
+				<tr style="background-color: blue;color:white;font-size:20px;text-align:center;"><th colspan=5>Table T1</th></tr>
+				<tr>
+					<th rowspan=2>Sl.No</th>
+					<th rowspan=2>V<sub>BIAS</sub>(V)</th>
+					<th colspan=3>Power=-18dBm</th>
+				</tr>
+				<tr>
+					<th>V<sub>L</sub>&nbsp;(mV)</th>
+					<th>I<sub>R</sub>&nbsp;(mA)</th>
+					<th>R<sub>&lambda;</sub>&nbsp;(A/W)</th>
+				</tr>
+			</table>-->
+			<table style="position:absolute;top:2em;" cellpadding="5" cellspacing="0" border="2 solid black" id="table1">
+				<tr style="background-color: blue;color:white;font-size:20px;text-align:center;"><th colspan=6>Experimental Readings</th></tr>
+				<tr>
+					<th rowspan=2>Sl.No</th>
+					<th rowspan=2>V<sub>BIAS</sub>(mV)</th>
+					<th colspan=3>Power = ---</th>
+					<th rowspan=2>Gain (dB)</th>
+				</tr>
+				<tr>
+					<th>V<sub>L</sub>&nbsp;(mV)</th>
+					<th>I<sub>R</sub>&nbsp;(nA)</th>
+					<th>R<sub>&lambda;</sub>&nbsp;(A/W)</th>
+				</tr>
+			</table>
+			<!--<table style="position:absolute;right:0em;top:4em;" cellspacing="0" border="2 solid black" id="table2">
+				<tr style="background-color: blue;color:white;font-size:20px;text-align:center;"><th colspan=5>Table T3</th></tr>
+				<tr>
+					<th rowspan=2>Sl.No</th>
+					<th rowspan=2>V<sub>BIAS</sub>(V)</th>
+					<th colspan=3>Power=-40dBm</th>
+				</tr>	
+					<th>V<sub>L</sub>&nbsp;(mV)</th>
+					<th>I<sub>R</sub>&nbsp;(mA)</th>
+					<th>R<sub>&lambda;</sub>&nbsp;(A/W)</th>
+				</tr>
+			</table>-->
+		</div>
+		<div class="graph">
+				<table style="position:relative;left:4em"><tr><td>
+				
+				<button class="button" onclick="plot2()">I<sub>R</sub> vs V<sub>BIAS</sub></button></td>
+				
+				<td>
+				
+				<button class="button" onclick="plot3()">Gain vs V<sub>L</sub></button></td>
+				</tr></table>
+				
+				<br>
+				<table border="2 solid black" id="graph">
+					<tr bgcolor="#9c9c77"><td align="center" class="font">Graph</td></tr>
+					<tr><td bgcolor="#ffffff"><canvas id="canvas" width="300" height="200"></canvas></td></tr>
+				</table>
+		</div>
+	</div>
+	<div style="position:absolute;top:35em;left:42em;"><button class="button" id="button1" onclick="printf()">Export Data</button><br/></div>
+		<div class="instruct">
+			<a id="myBtn" href="#"><img src="./images/help.png" width=30 height=30 alt="Help"></img></a>
+				<div id="myModal" class="modal">
+					<div class="modal-content">
+						<div class="modal-header">
+							<span class="close">&times;</span>
+							<h2>Instructions</h2>
+						</div>
+						<div class="modal-body">
+							<br/><left style="font-size:20px">Instructions:</left>
+							<ol type="1">
+								<li>Toggle On/Off button to control the power to the system.</li>
+								<li>Select a power input value from the select option</li>
+								<li>Initially the select option is fixed to -18dBm and input voltage is fixed to -500V</li>
+								<li>Slide the Input voltage range slider to read the input voltage</li>
+								<li>After entering values into table you can plot the graph using "I<sub>R</sub> vs V<sub>BIAS</sub>" and "Gain vs V<sub>BIAS</sub>" buttons</li>
+							</ol>
+							<left style="font-size:20px">Formulae:</left><br>
+							<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. IR=VL/(1x103)
+							<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. Rλ = VL/(RL*PS) A/W ,  
+							&nbsp;&nbsp; <c style="font-size:14px;"> where PS is the power in Watts.</c>
+							<br/>&nbsp;&nbsp;&nbsp;&nbsp; 3. ηC = (Rλhν/e) x 1/100 % ,
+							&nbsp;&nbsp; <c style="font-size:14px;"> where h=6.63 x 10-3 Js; e = 1.6 x 10-19 C; ν = c/λ = 3 x 108/λ.</c>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp; 4. Gain(dBm) = 20log(V<sub>L</sub> / V<sub>Bias</sub>)
+							<br/><br/><label>Note:</label>
+							<b>Donot move the range slider of Input voltage without starting the experiment</b><br/>&nbsp;&nbsp;&nbsp;&nbsp;
+							<b>Donot read same value more than once</b>
+						</div>
+						<div class="modal-footer">
+							<br/>
+						</div>
+				</div>
+	</div></div>
+	<div style="position:absolute;top:43.7em;left:45em;">Lab contributed by IITR</div>
+	<script>
+		var f=0,temp=1,x,y,z,am,count=1,i=3,l=8,m,n=1,del,k=3,t=0;
+		var l3=[],l4=[],l1=[],l5=[],l6=[];
+		var msg="";
+		$(window).load(function() {
+			// Animate loader off screen
+			
+				$("#se-pre-con").animate({
+					top: -900
+				}, 4000);t=1;
+			});
+		var modal = document.getElementById("myModal");
+
+		// Get the button that opens the modal
+		var btn = document.getElementById("myBtn");
+
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
+
+		// When the user clicks the button, open the modal 
+		btn.onclick = function() {
+			modal.style.display = "block";
+		}
+
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+			modal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+			if (event.target == modal) {
+					modal.style.display = "none";
+			}
+		}
+			function updatePowerMeter(val) {
+			  if(f==1) {
+				if(i>2) for(var q=3;q<i;q++) document.getElementById(q).remove();
+						i=3;n=1;l3=[];l4=[];l1=[];count=1;l5=[];l6=[];
+			    	var temp=document.getElementById("table1");
+				temp.rows[1].cells[2].innerHTML="Power ="+val+"dBm";
+				document.getElementById("y").value=val+" dB";
+				//m=document.getElementById("freq").selectedIndex;
+				document.getElementById("volt").value=-500;
+				updateTextBox(document.getElementById("volt").value);
+			  }
+			  else {
+				alert("Please turn on to select option");
+				document.getElementById("freq").selectedIndex=0;
+				}
+			}
+			function updateTextBox(val) {
+				
+					
+					  
+						
+						x=parseInt(val);
+						if(x>=-510 && x<-50) {
+							am=-81;
+							if(x>=-500 && x<-450) x=-500;
+							if(x>=-450 && x<-400) x=-450;
+							if(x>=-400 && x<-350) x=-400
+							if(x>=-350 && x<-300) x=-350;
+							if(x>=-300 && x<-250) x=-300;
+							if(x>=-250 && x<-200) x=-250;
+							if(x>=-200 && x<-150) x=-200;
+							if(x>=-150 && x<-100) x=-150;
+						}
+							if(x>=-100 && x<-50) { am=-78;x=-100;}
+						
+						if(x ==-50) {
+							x=-50;
+							am=-48.5;
+						}
+						
+						
+						if(document.getElementById("freq").value=="-15") {
+							am=am-30;
+							if(x==100) am=0;
+						}
+						y=(am/1000).toFixed(4);
+						document.getElementById("x").value=x+" mV";
+						
+						//insert();
+						
+					
+				
+			}
+			function updateDisplay() {
+					f=f+temp;
+					temp=f-temp;
+					f=f-temp;
+					display();
+			}
+			function display() {
+					if(f==0) {
+						l=8;
+						document.getElementById("x").value="";
+						document.getElementById("y").value="";
+						document.getElementById("z").value="";
+						document.getElementById("am").value="";
+						document.getElementById('volt').value=-500;
+						document.getElementById("freq").selectedIndex=0;
+						if(i>2) for(var q=3;q<i;q++) document.getElementById(q).remove();
+						i=3;n=1;l3=[];l4=[];l5=[];l6=[];count=1;
+						var temp=document.getElementById("table1");
+						temp.rows[1].cells[2].innerHTML="Power = ---"; 
+					}
+					else if(f==1){
+						//document.getElementById("y").value=-25+" dB";
+						//updateTextBox(document.getElementById("volt").value);
+						updatePowerMeter(document.getElementById("freq").value);
+						//k=1;
+						
+					}
+			}
+			function insert() {
+				if(f==1) {
+						flag=0;
+						for(var d=0;d<l1.length;d++) if(x==l1[d]){flag=1;break;}
+						if(!flag){
+							l1.push(x);
+						document.getElementById("z").value=y+" mV";
+						document.getElementById("am").value=am+" nA";
+						insertTable(document.getElementById("table1"));
+									l3.push(x);
+									l4.push(am);
+						}else alert("You can't read same value more than once");
+						}else alert("Please turn on the power");			
+			}
+			function insertTable(val) {
+				if(count<11){
+					if(x==0 || y==0) alert("Gain will be infinity.\nPlease read another value.");
+					else {
+					var row=val.insertRow(i);
+					row.id=i++;
+					row.setAttribute("bgcolor","#ffffff");
+					row.setAttribute("align","center");
+					var cell1=row.insertCell(0);
+					var cell2=row.insertCell(1);
+					var cell3=row.insertCell(2);
+					var cell4=row.insertCell(3);
+					var cell5=row.insertCell(4);
+					var cell6=row.insertCell(5);
+					cell1.innerHTML=count++;
+					l=count;
+					cell2.innerHTML=x;
+					cell3.innerHTML=y;
+					cell4.innerHTML=am;
+					var pl=((y)/(-25)).toFixed(4);
+					cell5.innerHTML=pl;
+					cell6.innerHTML=(20*Math.log10(y/x)).toFixed(4);
+					
+					l5.push(y);
+					l6.push((20*Math.log10(y/x)).toFixed(4));}
+				}
+			}
+			
+			function plot2() {
+				msg="Ir (nA) vs Vbias (mV)";
+				lsort(l3,l4);
+				plot(l3,l4,msg);
+			}
+			function plot3() {
+				msg="Gain (dB) vs VL (mV)";
+				//lsort(l5,l6);
+				plot(l5,l6,msg);
+			}
+			function lsort(a,b){
+				var len1=a.length;
+				//sorting
+				for(var i=0;i<len1;i++) {
+					for(var j=i+1;j<len1;j++) {
+						if(parseFloat(a[i])>parseFloat(a[j])) {
+							var temp=a[i];
+							a[i]=a[j];
+							a[j]=temp;
+							temp=b[i];
+							b[i]=b[j];
+							b[j]=temp;
+						}
+					}
+				}
+			}
+			function plot(xval,yval,str) {
+			if(f==1){
+			if(i<4) alert("Please read values into table");
+			else{
+				var ctx=document.getElementById("canvas").getContext('2d');
+				
+				var chart=new Chart(ctx,{
+								type:'line',
+								data: {
+									labels:xval,
+									datasets:[{
+										label:str,
+										borderColor:'#000000',
+										data:yval,
+									}]
+								}
+							});
+			}
+			}else alert("Please turn on the experiment");
+			}
+			
+			function printf() {
+				if(t) document.getElementById("se-pre-con").remove();
+				t=0;
+				window.print();
+			}
+			/*document.querySelector('#button1').addEventListener('click', function() {
+        html2canvas(document.querySelector('.calc'), {
+            onrendered: function(canvas) {
+                // document.body.appendChild(canvas);
+              return Canvas2Image.saveAsPNG(canvas);
+            }
+		});
+			html2canvas(document.querySelector('#graph'), {
+            onrendered: function(canvas) {
+                // document.body.appendChild(canvas);
+              return Canvas2Image.saveAsPNG(canvas);
+            }
+		});
+    });*/
+
+	</script>
+</body>
+</html>
